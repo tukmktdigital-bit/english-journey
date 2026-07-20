@@ -1,0 +1,1908 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Journey — Gabriela</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --p:#5B4FE8;--pl:#EEF0FF;--pd:#4338CA;
+  --g:#38A169;--gl:#F0FFF4;
+  --a:#DD6B20;--al:#FFFAF0;
+  --r:#E53E3E;--rl:#FFF5F5;
+  --bg:#F8F9FD;--w:#FFFFFF;
+  --t:#1A202C;--tm:#718096;--b:#E2E8F0;
+  --sh:0 2px 16px rgba(0,0,0,.08);--r12:12px
+}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--t);line-height:1.6;min-height:100vh}
+.con{max-width:860px;margin:0 auto;padding:20px}
+.hidden{display:none!important}
+.hdr{background:linear-gradient(135deg,#5B4FE8,#7C3AED);color:#fff;padding:14px 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(91,79,232,.35)}
+.hdr-i{max-width:860px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+.hdr-logo{font-size:1.15rem;font-weight:800;letter-spacing:-.5px}
+.hdr-logo span{opacity:.7;font-weight:400}
+.hdr-xp{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);padding:6px 14px;border-radius:20px;font-size:.85rem;font-weight:700;cursor:pointer}
+.hdr-nav{display:flex;align-items:center;gap:10px}
+.btn-nav{background:rgba(255,255,255,.15);border:none;color:#fff;padding:6px 14px;border-radius:20px;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-nav:hover{background:rgba(255,255,255,.3)}
+
+/* HERO WELCOME */
+.hero{text-align:center;padding:56px 20px 44px;background:linear-gradient(135deg,#5B4FE8,#7C3AED);color:#fff;border-radius:0 0 40px 40px;margin-bottom:32px}
+.hero-em{font-size:4rem;margin-bottom:16px;display:block}
+.hero h1{font-size:2rem;font-weight:800;margin-bottom:10px;letter-spacing:-.5px}
+.hero p{font-size:1rem;opacity:.9;max-width:480px;margin:0 auto 28px}
+.features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+.feat{background:var(--w);border-radius:var(--r12);padding:20px;text-align:center;box-shadow:var(--sh);border:1px solid var(--b)}
+.feat-em{font-size:2rem;margin-bottom:8px;display:block}
+.feat h3{font-size:.9rem;font-weight:700;color:var(--t);margin-bottom:4px}
+.feat p{font-size:.8rem;color:var(--tm)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;border:none;cursor:pointer;font-size:.95rem;font-weight:600;transition:all .2s;text-decoration:none}
+.btn-p{background:var(--p);color:#fff;box-shadow:0 4px 15px rgba(91,79,232,.4)}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(91,79,232,.5)}
+.btn-w{background:#fff;color:var(--p);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.btn-w:hover{transform:translateY(-2px)}
+.btn-g{background:var(--g);color:#fff;box-shadow:0 4px 15px rgba(56,161,105,.4)}
+.btn-g:hover{transform:translateY(-2px)}
+.btn-o{background:transparent;color:var(--tm);border:2px solid var(--b)}
+.btn-o:hover{border-color:var(--p);color:var(--p)}
+.btn-sm{padding:8px 18px;font-size:.85rem}
+.btn-full{width:100%;justify-content:center}
+
+/* CARDS */
+.card{background:var(--w);border-radius:var(--r12);padding:24px;box-shadow:var(--sh);border:1px solid var(--b);margin-bottom:16px}
+.progress-bar{background:var(--b);border-radius:50px;height:8px;overflow:hidden;margin:8px 0}
+.progress-fill{height:100%;border-radius:50px;background:linear-gradient(90deg,var(--p),#7C3AED);transition:width .5s ease}
+.progress-fill.g{background:linear-gradient(90deg,#38A169,#48BB78)}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:700}
+.badge-A1{background:#EBF8FF;color:#2B6CB0}
+.badge-A2{background:#F0FFF4;color:#276749}
+.badge-B1{background:#FFFAF0;color:#C05621}
+.badge-B2{background:#FAF5FF;color:#6B46C1}
+
+/* PLACEMENT TEST */
+.test-dots{display:flex;gap:5px;margin-bottom:24px;flex-wrap:wrap}
+.dot{width:36px;height:6px;border-radius:3px;background:var(--b);transition:background .3s}
+.dot.act{background:var(--p)}
+.dot.ok{background:var(--g)}
+.dot.err{background:var(--r)}
+.qcard{background:var(--w);border-radius:var(--r12);padding:28px;box-shadow:var(--sh);border:1px solid var(--b);animation:fi .3s ease}
+.qlvl{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:3px 10px;border-radius:20px;background:var(--pl);color:var(--p);margin-bottom:12px}
+.qtxt{font-size:1.1rem;font-weight:600;margin-bottom:20px;line-height:1.5}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:14px;padding:13px 18px;border:2px solid var(--b);border-radius:10px;background:var(--w);cursor:pointer;text-align:left;font-size:.95rem;font-weight:500;transition:all .15s;color:var(--t);width:100%}
+.opt:hover{border-color:var(--p);background:var(--pl)}
+.opt.sel{border-color:var(--p);background:var(--pl);color:var(--p)}
+.opt.ok{border-color:var(--g);background:var(--gl);color:var(--g)}
+.opt.err{border-color:var(--r);background:var(--rl);color:var(--r)}
+.opt-lt{width:28px;height:28px;border-radius:50%;background:var(--b);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0}
+.expl{background:var(--gl);border-left:4px solid var(--g);border-radius:0 8px 8px 0;padding:12px 16px;margin-top:14px;font-size:.875rem;color:#276749;display:none}
+
+/* RESULT SCREEN */
+.result-hero{text-align:center;padding:40px 20px;background:linear-gradient(135deg,#5B4FE8,#7C3AED);color:#fff;border-radius:var(--r12);margin-bottom:24px}
+.score-circle{width:110px;height:110px;border-radius:50%;border:6px solid rgba(255,255,255,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 16px;font-size:1.8rem;font-weight:800}
+.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
+.stat-card{background:var(--w);border-radius:var(--r12);padding:20px;text-align:center;box-shadow:var(--sh);border:1px solid var(--b)}
+.stat-num{font-size:2rem;font-weight:800;color:var(--p)}
+.stat-lbl{font-size:.8rem;color:var(--tm);margin-top:4px}
+
+/* DASHBOARD */
+.dash-top{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:24px}
+.user-card{background:linear-gradient(135deg,#5B4FE8,#7C3AED);color:#fff;border-radius:var(--r12);padding:24px;box-shadow:0 4px 20px rgba(91,79,232,.3)}
+.user-name{font-size:1.3rem;font-weight:800;margin-bottom:4px}
+.user-sub{opacity:.8;font-size:.875rem;margin-bottom:16px}
+.xp-bar-bg{background:rgba(255,255,255,.2);border-radius:50px;height:8px;margin:8px 0}
+.xp-bar-fill{height:100%;border-radius:50px;background:#fff;transition:width .5s}
+.streak-card{background:var(--w);border-radius:var(--r12);padding:20px;box-shadow:var(--sh);border:1px solid var(--b);text-align:center}
+.streak-num{font-size:2.5rem;font-weight:800;color:var(--a)}
+.streak-lbl{font-size:.8rem;color:var(--tm)}
+.streak-icon{font-size:2rem}
+
+.section-title{font-size:1.1rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.mod-card{background:var(--w);border-radius:var(--r12);border:2px solid var(--b);overflow:hidden;transition:all .2s;margin-bottom:12px}
+.mod-card:hover{transform:translateY(-2px);box-shadow:var(--sh)}
+.mod-card.locked{opacity:.55;pointer-events:none}
+.mod-card.done{border-color:var(--g)}
+.mod-hdr{padding:18px 22px;display:flex;align-items:center;gap:16px;cursor:pointer}
+.mod-num{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--p),#7C3AED);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:800;flex-shrink:0}
+.mod-num.done{background:linear-gradient(135deg,#38A169,#48BB78)}
+.mod-num.locked{background:var(--b);color:var(--tm)}
+.mod-info{flex:1}
+.mod-title{font-weight:700;font-size:.95rem;margin-bottom:2px}
+.mod-sub{font-size:.8rem;color:var(--tm)}
+.mod-badge{font-size:1.2rem}
+.mod-body{padding:0 22px 18px;border-top:1px solid var(--b)}
+.les-list{list-style:none;margin-top:10px}
+.les-item{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--b);cursor:pointer;transition:all .15s}
+.les-item:last-child{border-bottom:none}
+.les-item:hover .les-name{color:var(--p)}
+.les-ck{width:22px;height:22px;border-radius:50%;border:2px solid var(--b);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;transition:all .2s}
+.les-ck.done{background:var(--g);border-color:var(--g);color:#fff}
+.les-name{flex:1;font-size:.875rem;font-weight:500}
+.les-xp{font-size:.75rem;color:var(--p);font-weight:700;background:var(--pl);padding:2px 8px;border-radius:10px}
+.les-quiz{font-size:.75rem;color:var(--a);font-weight:700;background:var(--al);padding:2px 8px;border-radius:10px}
+.pill{font-size:.68rem;font-weight:700;padding:2px 9px;border-radius:10px;flex-shrink:0;white-space:nowrap}
+.pill.pg{background:#EEF0FF;color:#5B4FE8}
+.pill.pr{background:#FFF8E6;color:#B7791F}
+.pill.pw{background:#E6FFFA;color:#2C7A7B}
+.pill.ps{background:#FFF0F5;color:#B83280}
+
+/* LESSON VIEW */
+.les-hero{background:linear-gradient(135deg,#5B4FE8,#7C3AED);color:#fff;padding:30px 32px;border-radius:var(--r12) var(--r12) 0 0}
+.les-hero h2{font-size:1.4rem;font-weight:800;margin-bottom:4px}
+.les-hero p{opacity:.85;font-size:.9rem}
+.les-content{background:var(--w);border-radius:0 0 var(--r12) var(--r12);padding:32px;border:1px solid var(--b);border-top:none;box-shadow:var(--sh)}
+.les-sec{margin-bottom:28px}
+.les-sec h3{font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--p);margin-bottom:12px;padding-bottom:6px;border-bottom:2px solid var(--pl)}
+.les-sec p{font-size:.95rem;color:var(--t);margin-bottom:10px;line-height:1.7}
+.eg{background:var(--pl);border-left:4px solid var(--p);border-radius:0 8px 8px 0;padding:12px 18px;margin:10px 0}
+.eg .en{font-weight:700;color:var(--p);font-size:.95rem}
+.eg .pt{color:var(--tm);font-size:.84rem;margin-top:3px}
+.tip{background:#FFFAF0;border:1px solid #FBD38D;border-radius:10px;padding:13px 18px;margin:14px 0;font-size:.875rem;line-height:1.6}
+.tip strong{color:var(--a)}
+.tip-icon{font-size:1.1rem;margin-right:6px}
+table.gt{width:100%;border-collapse:collapse;font-size:.875rem;margin:12px 0;border-radius:8px;overflow:hidden}
+table.gt th{background:var(--pl);color:var(--p);padding:10px 14px;text-align:left;font-weight:700;border:1px solid var(--b)}
+table.gt td{padding:9px 14px;border:1px solid var(--b)}
+table.gt tr:nth-child(even) td{background:var(--bg)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0}
+.word-card{background:var(--bg);border-radius:8px;padding:12px 16px;border:1px solid var(--b)}
+.word-en{font-weight:700;color:var(--p);font-size:.95rem}
+.word-pt{color:var(--tm);font-size:.82rem}
+.word-eg{font-size:.8rem;font-style:italic;color:var(--t);margin-top:3px}
+
+/* EXERCISE VIEW */
+.ex-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;flex-wrap:wrap;gap:10px}
+.ex-prog{display:flex;gap:5px}
+.ex-dot{width:30px;height:6px;border-radius:3px;background:var(--b);transition:background .3s}
+.ex-dot.act{background:var(--p)}
+.ex-dot.ok{background:var(--g)}
+.ex-dot.err{background:var(--r)}
+.ex-score{font-size:.85rem;font-weight:700;color:var(--p);background:var(--pl);padding:5px 12px;border-radius:20px}
+.ex-q{font-size:1rem;font-weight:600;margin-bottom:18px;line-height:1.6}
+.ex-input{border:none;border-bottom:2px solid var(--p);background:var(--pl);padding:5px 10px;font-size:.95rem;color:var(--p);font-weight:600;min-width:130px;text-align:center;border-radius:4px 4px 0 0;outline:none;font-family:inherit}
+.ex-input.ok{border-color:var(--g);background:var(--gl);color:var(--g)}
+.ex-input.err{border-color:var(--r);background:var(--rl);color:var(--r)}
+.fb{padding:13px 18px;border-radius:10px;margin-top:16px;font-size:.875rem;line-height:1.6}
+.fb.ok{background:var(--gl);color:#276749}
+.fb.err{background:var(--rl);color:var(--r)}
+.ex-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.ex-finish{text-align:center;padding:30px 20px}
+.ex-finish .big{font-size:3rem;display:block;margin-bottom:12px}
+
+/* QUIZ */
+.quiz-prog{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;font-size:.85rem;color:var(--tm)}
+.quiz-q{font-size:1.05rem;font-weight:600;margin-bottom:18px;line-height:1.5}
+.quiz-result{text-align:center;padding:36px 20px;animation:fi .4s ease}
+.qr-circle{width:120px;height:120px;border-radius:50%;border:8px solid;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 20px;font-size:2rem;font-weight:800}
+.qr-circle.pass{border-color:var(--g);color:var(--g)}
+.qr-circle.fail{border-color:var(--r);color:var(--r)}
+
+/* AUTH */
+.auth-wrap{min-height:calc(100vh - 60px);display:flex;align-items:center;justify-content:center;padding:30px 16px;background:linear-gradient(135deg,#5B4FE8,#7C3AED)}
+.auth-card{background:var(--w);border-radius:20px;padding:36px 32px;box-shadow:0 20px 60px rgba(0,0,0,.3);width:100%;max-width:410px;animation:fi .4s ease}
+.auth-logo{text-align:center;font-size:2.6rem;margin-bottom:6px}
+.auth-card h2{text-align:center;font-size:1.4rem;font-weight:800;margin-bottom:4px}
+.auth-card .sub{text-align:center;color:var(--tm);font-size:.88rem;margin-bottom:24px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:.8rem;font-weight:700;color:var(--t);margin-bottom:6px}
+.fld input{width:100%;padding:12px 14px;border:2px solid var(--b);border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;transition:border .15s;background:var(--bg)}
+.fld input:focus{border-color:var(--p);background:#fff}
+.auth-err{background:var(--rl);color:var(--r);border-radius:8px;padding:10px 14px;font-size:.83rem;margin-bottom:16px;display:none}
+.auth-switch{text-align:center;font-size:.85rem;color:var(--tm);margin-top:18px}
+.auth-switch a{color:var(--p);font-weight:700;cursor:pointer;text-decoration:none}
+.auth-note{background:var(--pl);border-radius:8px;padding:11px 14px;font-size:.76rem;color:var(--pd);margin-top:18px;line-height:1.5}
+.hdr-user{display:flex;align-items:center;gap:8px;cursor:pointer;position:relative}
+.hdr-avatar{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.85rem}
+.hdr-menu{position:absolute;top:42px;right:0;background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.2);padding:8px;min-width:180px;z-index:200;display:none}
+.hdr-menu.show{display:block}
+.hdr-menu .mi{padding:10px 14px;font-size:.85rem;color:var(--t);border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.hdr-menu .mi:hover{background:var(--bg)}
+.hdr-menu .mi.danger{color:var(--r)}
+.hdr-menu .mihead{padding:8px 14px;border-bottom:1px solid var(--b);margin-bottom:4px}
+.hdr-menu .mihead .n{font-weight:700;font-size:.85rem}
+.hdr-menu .mihead .e{font-size:.72rem;color:var(--tm)}
+.saved-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--t);color:#fff;padding:10px 20px;border-radius:30px;font-size:.82rem;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:300;transition:transform .3s ease;display:flex;align-items:center;gap:7px}
+.saved-toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ANIMATIONS */
+@keyframes fi{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.ani{animation:fi .3s ease forwards}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero h1{font-size:1.5rem}
+  .features{grid-template-columns:1fr 1fr}
+  .dash-top{grid-template-columns:1fr}
+  .result-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .con{padding:12px}
+  .les-content{padding:20px}
+  .les-hero{padding:22px}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr hidden" id="mainHdr">
+  <div class="hdr-i">
+    <div class="hdr-logo">🇺🇸 English Journey</div>
+    <div class="hdr-nav">
+      <div class="hdr-xp" id="xpDisplay">⭐ 0 XP</div>
+      <button class="btn-nav hidden" id="btnDash" onclick="goTo('dashboard')">📚 Curso</button>
+      <div class="hdr-user" id="hdrUser" onclick="toggleUserMenu(event)">
+        <div class="hdr-avatar" id="hdrAvatar">?</div>
+        <span id="hdrName" style="font-size:.85rem;font-weight:600">—</span>
+        <span style="font-size:.7rem;opacity:.7">▼</span>
+        <div class="hdr-menu" id="hdrMenu">
+          <div class="mihead">
+            <div class="n" id="menuName">—</div>
+            <div class="e" id="menuEmail">—</div>
+          </div>
+          <div class="mi" onclick="goTo('dashboard')">📚 Meu curso</div>
+          <div class="mi danger" onclick="doLogout()">🚪 Sair da conta</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div id="app"></div>
+<div class="saved-toast" id="savedToast">💾 Progresso salvo</div>
+
+<script>
+// ==================== STATE ====================
+const S = {
+  screen: 'login',
+  user: null,        // {name, email}
+  level: null,
+  xp: 0,
+  streak: 1,
+  lastStudy: null,   // YYYY-MM-DD
+  completedLessons: new Set(),
+  completedModules: new Set(),
+  quizScores: {},
+  testScore: 0,
+  testAnswers: [],
+  curModule: null,
+  curLesson: null,
+  curExercise: 0,
+  exerciseAnswers: [],
+  curQuiz: null,
+  quizAnswers: [],
+  quizCur: 0,
+  openModules: new Set([0]),
+};
+
+// ==================== PERSISTENCE (localStorage) ====================
+const DB_KEY = 'englishJourney_db_v1';
+let storageOK = true;
+try { const t='__t'; localStorage.setItem(t,'1'); localStorage.removeItem(t); } catch(e){ storageOK=false; }
+
+function loadDB(){
+  try { return JSON.parse(localStorage.getItem(DB_KEY)) || {users:{},current:null}; }
+  catch(e){ return {users:{},current:null}; }
+}
+function writeDB(db){
+  try { localStorage.setItem(DB_KEY, JSON.stringify(db)); } catch(e){}
+}
+function hash(str){ // simple non-crypto hash — just to avoid storing plain passwords
+  let h=0; for(let i=0;i<str.length;i++){ h=((h<<5)-h)+str.charCodeAt(i); h|=0; } return String(h);
+}
+function todayStr(){ const d=new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function daysBetween(a,b){ return Math.round((new Date(b)-new Date(a))/86400000); }
+
+// Serialize the learning state (not transient UI fields)
+function serializeProgress(){
+  return {
+    level:S.level, xp:S.xp, streak:S.streak, lastStudy:S.lastStudy,
+    completedLessons:[...S.completedLessons],
+    completedModules:[...S.completedModules],
+    quizScores:S.quizScores,
+    testScore:S.testScore,
+    openModules:[...S.openModules],
+  };
+}
+function applyProgress(p){
+  if(!p) return;
+  S.level=p.level??null; S.xp=p.xp||0; S.streak=p.streak||1; S.lastStudy=p.lastStudy||null;
+  S.completedLessons=new Set(p.completedLessons||[]);
+  S.completedModules=new Set(p.completedModules||[]);
+  S.quizScores=p.quizScores||{};
+  S.testScore=p.testScore||0;
+  S.openModules=new Set(p.openModules&&p.openModules.length?p.openModules:[0]);
+}
+function save(showToast){
+  if(!S.user) return;
+  const db=loadDB();
+  if(!db.users[S.user.email]) return;
+  db.users[S.user.email].progress=serializeProgress();
+  db.current=S.user.email;
+  writeDB(db);
+  if(showToast) toast();
+}
+let toastTimer=null;
+function toast(){
+  const t=document.getElementById('savedToast');
+  if(!t) return;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),1600);
+}
+
+// Streak logic — run once per session load when a user is active
+function updateStreak(){
+  const today=todayStr();
+  if(S.lastStudy===today) return;      // already counted today
+  if(S.lastStudy){
+    const gap=daysBetween(S.lastStudy,today);
+    if(gap===1) S.streak=(S.streak||0)+1;   // consecutive day
+    else if(gap>1) S.streak=1;               // missed a day → reset
+  } else {
+    S.streak=1;
+  }
+  S.lastStudy=today;
+  save(false);
+}
+
+// ==================== AUTH ====================
+let authMode='login'; // or 'signup'
+function drawLogin(){
+  document.getElementById('mainHdr').classList.add('hidden');
+  const isSignup=authMode==='signup';
+  render(`
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo">🇺🇸</div>
+      <h2>English Journey</h2>
+      <p class="sub">${isSignup?'Crie sua conta gratuita para começar':'Entre para continuar seus estudos'}</p>
+      <div class="auth-err" id="authErr"></div>
+      ${isSignup?`<div class="fld"><label>Nome</label><input id="inName" type="text" placeholder="Seu nome" autocomplete="name"></div>`:''}
+      <div class="fld"><label>E-mail</label><input id="inEmail" type="email" placeholder="voce@email.com" autocomplete="email"></div>
+      <div class="fld"><label>Senha</label><input id="inPass" type="password" placeholder="${isSignup?'Crie uma senha (mín. 4 caracteres)':'Sua senha'}" autocomplete="${isSignup?'new-password':'current-password'}" onkeydown="if(event.key==='Enter')submitAuth()"></div>
+      <button class="btn btn-p btn-full" onclick="submitAuth()">${isSignup?'✨ Criar conta e começar':'Entrar →'}</button>
+      <div class="auth-switch">
+        ${isSignup?"Já tem conta? <a onclick=\"switchAuth('login')\">Entrar</a>":"Ainda não tem conta? <a onclick=\"switchAuth('signup')\">Criar conta grátis</a>"}
+      </div>
+      ${!storageOK?`<div class="auth-note" style="background:var(--rl);color:var(--r)">⚠️ Seu navegador está bloqueando o salvamento. Para guardar seu progresso, <b>baixe este arquivo</b> e abra direto no Chrome (não no modo anônimo).</div>`:`<div class="auth-note">🔒 Seus dados ficam salvos <b>somente neste navegador</b>, no seu dispositivo. Nada é enviado para a internet. Use sempre o mesmo navegador para manter seu progresso.</div>`}
+    </div>
+  </div>`);
+  setTimeout(()=>{ const f=document.getElementById(isSignup?'inName':'inEmail'); f&&f.focus(); },100);
+}
+function switchAuth(mode){ authMode=mode; drawLogin(); }
+function authError(msg){
+  const e=document.getElementById('authErr');
+  if(e){ e.textContent=msg; e.style.display='block'; }
+}
+function submitAuth(){
+  const email=(document.getElementById('inEmail').value||'').trim().toLowerCase();
+  const pass=(document.getElementById('inPass').value||'').trim();
+  const db=loadDB();
+  if(!email||!email.includes('@')){ authError('Digite um e-mail válido.'); return; }
+  if(!pass){ authError('Digite sua senha.'); return; }
+  if(authMode==='signup'){
+    const name=(document.getElementById('inName').value||'').trim();
+    if(!name){ authError('Digite seu nome.'); return; }
+    if(pass.length<4){ authError('A senha deve ter pelo menos 4 caracteres.'); return; }
+    if(db.users[email]){ authError('Já existe uma conta com este e-mail. Faça login.'); return; }
+    db.users[email]={ name, pass:hash(pass), progress:null };
+    db.current=email;
+    writeDB(db);
+    S.user={name,email};
+    applyProgress(null);
+    S.screen='welcome';
+    updateStreak();
+    draw();
+  } else {
+    const u=db.users[email];
+    if(!u){ authError('Conta não encontrada. Crie uma conta grátis.'); return; }
+    if(u.pass!==hash(pass)){ authError('Senha incorreta. Tente novamente.'); return; }
+    S.user={name:u.name,email};
+    applyProgress(u.progress);
+    db.current=email;
+    writeDB(db);
+    S.screen=S.level?'dashboard':'welcome';
+    updateStreak();
+    draw();
+  }
+}
+function doLogout(){
+  save(false);
+  const db=loadDB(); db.current=null; writeDB(db);
+  S.user=null; applyProgress(null); S.level=null;
+  document.getElementById('hdrMenu').classList.remove('show');
+  authMode='login'; S.screen='login';
+  draw();
+}
+function toggleUserMenu(e){
+  e.stopPropagation();
+  document.getElementById('hdrMenu').classList.toggle('show');
+}
+document.addEventListener('click',()=>{ const m=document.getElementById('hdrMenu'); if(m) m.classList.remove('show'); });
+
+// Auto-login returning user
+function boot(){
+  const db=loadDB();
+  if(db.current && db.users[db.current]){
+    const u=db.users[db.current];
+    S.user={name:u.name,email:db.current};
+    applyProgress(u.progress);
+    S.screen=S.level?'dashboard':'welcome';
+    updateStreak();
+  } else {
+    S.screen='login';
+  }
+  draw();
+}
+
+// ==================== PLACEMENT TEST ====================
+const TEST = [
+  {lvl:'A1',q:'What ___ your name?',opts:['is','are','am','be'],ans:0,exp:'<b>"Is"</b> é usado com he/she/it e em perguntas como "What is..." — What is your name? (Qual é o seu nome?)'},
+  {lvl:'A1',q:'I ___ a student.',opts:['are','is','am','be'],ans:2,exp:'<b>"Am"</b> é sempre usado com <b>"I"</b> (eu). → I am / I\'m a student.'},
+  {lvl:'A1',q:'She has ___ apple and ___ banana.',opts:['a / a','an / a','an / an','a / an'],ans:1,exp:'<b>"An"</b> antes de sons de vogal (apple, orange, egg). <b>"A"</b> antes de consoantes (banana, car, house).'},
+  {lvl:'A1',q:'The children ___ in the park now.',opts:['is','am','are','be'],ans:2,exp:'<b>"Are"</b> é usado com you/we/they e substantivos no plural (children = crianças).'},
+  {lvl:'A2',q:'She usually ___ to school by bus.',opts:['go','goes','going','went'],ans:1,exp:'No <b>Present Simple</b>, para he/she/it, adicionamos <b>-s</b> ao verbo: she go<b>es</b>.'},
+  {lvl:'A2',q:'We ___ to Paris last summer.',opts:['go','gone','went','goes'],ans:2,exp:'<b>"Went"</b> é o passado irregular de "go". Verbos irregulares não seguem a regra do -ed.'},
+  {lvl:'A2',q:'He is taller ___ his brother.',opts:['that','then','than','as'],ans:2,exp:'Usamos <b>"than"</b> em comparações: taller <b>than</b>, bigger <b>than</b>, more expensive <b>than</b>.'},
+  {lvl:'A2',q:'___ they watching TV right now?',opts:['Do','Does','Are','Is'],ans:2,exp:'No <b>Present Continuous</b>, usamos <b>"are"</b> com they/we/you: <b>Are</b> they watching...?'},
+  {lvl:'B1',q:'I ___ in this city for five years.',opts:['live','lived','have lived','am living'],ans:2,exp:'<b>Present Perfect</b> com "for" indica uma ação que <b>começou no passado e continua</b> até agora: I have lived here for 5 years.'},
+  {lvl:'B1',q:'If it rains tomorrow, we ___ stay home.',opts:['will','would','can','shall'],ans:0,exp:'<b>1st Conditional</b>: If + present simple, <b>will</b> + verbo base. Situações reais/possíveis no futuro.'},
+  {lvl:'B1',q:'The report ___ written by the manager.',opts:['was','were','is being','had'],ans:0,exp:'<b>Passive Voice</b> no passado: <b>was/were</b> + past participle. "The manager wrote the report" → "The report <b>was written</b> by the manager."'},
+  {lvl:'B1',q:"You ___ smoke here. It's not allowed.",opts:["mustn't","don't have to","couldn't","needn't"],ans:0,exp:'<b>"Mustn\'t"</b> = proibição (é proibido). <b>"Don\'t have to"</b> = não é necessário (mas é permitido). Diferença importante!'},
+  {lvl:'B2',q:'By the time she arrived, we ___ already finished dinner.',opts:['have','had','were','would'],ans:1,exp:'<b>Past Perfect</b> (had + past participle) indica uma ação que aconteceu <b>antes de outra</b> ação no passado.'},
+  {lvl:'B2',q:'I wish I ___ more free time.',opts:['have','had','would have','will have'],ans:1,exp:'"I wish" + <b>past simple</b> expressa um desejo sobre o presente — algo que não é realidade agora.'},
+  {lvl:'B2',q:'___ I known you were coming, I would have cooked more.',opts:['Had','If','Would','Should'],ans:0,exp:'Inversão no <b>3rd Conditional</b>: <b>"Had I known..."</b> = "If I had known..." — forma mais formal/literária.'},
+];
+
+// ==================== CURRICULUM ====================
+const MODULES = [
+  {
+    id:0, title:'Fundamentos', subtitle:'To Be, Present Simple, Articles + Leitura, Escrita e Fala 🇺🇸',
+    emoji:'🌱', level:'A1-A2',
+    lessons:[
+      {
+        id:'1.1', title:'Verb TO BE — is, am, are',
+        obj:'Aprender a usar o verbo "ser/estar" no presente',
+        theory:[
+          {type:'intro', text:'O verbo <b>TO BE</b> significa "ser" ou "estar". É o verbo mais importante do inglês! Ele muda de forma dependendo do sujeito.'},
+          {type:'table', headers:['Sujeito','Forma completa','Forma curta','Tradução'],
+           rows:[['I','am','\'m','Eu sou/estou'],['You','are','\'re','Você é/está'],['He / She / It','is','\'s','Ele/Ela é/está'],['We','are','\'re','Nós somos/estamos'],['They','are','\'re','Eles são/estão']]},
+          {type:'sec', title:'Exemplos Afirmativos', items:[
+            {en:'I am Brazilian.', pt:'Eu sou brasileira.'},
+            {en:'She is a teacher.', pt:'Ela é professora.'},
+            {en:'They are happy.', pt:'Eles estão felizes.'},
+            {en:'We are friends.', pt:'Nós somos amigos.'}
+          ]},
+          {type:'sec', title:'Exemplos Negativos', text:'Para negar, adicione <b>NOT</b> após o verbo:', items:[
+            {en:'I am not tired. / I\'m not tired.', pt:'Eu não estou cansada.'},
+            {en:'He is not (isn\'t) at home.', pt:'Ele não está em casa.'},
+            {en:'They are not (aren\'t) students.', pt:'Eles não são estudantes.'}
+          ]},
+          {type:'sec', title:'Perguntas', text:'Para perguntar, inverta a ordem (verbo antes do sujeito):', items:[
+            {en:'Are you from Brazil?', pt:'Você é do Brasil?'},
+            {en:'Is she married?', pt:'Ela é casada?'},
+            {en:'Where are they?', pt:'Onde eles estão?'}
+          ]},
+          {type:'tip', text:'💡 <strong>Dica:</strong> Sempre use a forma curta (I\'m, she\'s, they\'re) na conversa do dia a dia. A forma completa é mais formal.'}
+        ],
+        exercises:[
+          {type:'fill', q:'___ am a teacher.',blanks:[{pos:0,ans:'I',before:'',after:' am a teacher.'}]},
+          {type:'mc', q:'She ___ very beautiful.', opts:['am','are','is','be'], ans:2},
+          {type:'fill', q:'Complete: They ___ from Argentina.',blanks:[{pos:0,ans:'are',before:'They ',after:' from Argentina.'}]},
+          {type:'mc', q:'___ you married?', opts:['Am','Is','Are','Be'], ans:2},
+          {type:'fill', q:'He ___ not at school today.',blanks:[{pos:0,ans:'is',before:'He ',after:' not at school today.'}]},
+          {type:'mc', q:'I ___ 25 years old.', opts:['are','is','am','be'], ans:2},
+        ],
+        quiz:[
+          {q:'Which is correct?', opts:['I is happy.','I am happy.','I are happy.','I be happy.'], ans:1},
+          {q:'Choose the contraction for "She is":',opts:["She's","Shes","She're","She'm"],ans:0},
+          {q:'"___ you a student?" — "Yes, I ___."',opts:['Is / am','Are / am','Is / is','Are / is'],ans:1},
+          {q:'Make it negative: "He is at home" →',opts:['He not is at home.','He is not at home.','He are not at home.','He am not at home.'],ans:1},
+          {q:'"They ___ from Spain."',opts:['is','am','are','be'],ans:2},
+        ]
+      },
+      {
+        id:'1.2', title:'Present Simple — Hábitos e Rotinas',
+        obj:'Usar o presente simples para falar de hábitos, rotinas e fatos',
+        theory:[
+          {type:'intro', text:'O <b>Present Simple</b> é usado para: rotinas diárias, hábitos, fatos e verdades gerais. É o tempo verbal mais usado em inglês!'},
+          {type:'sec', title:'Regras de Formação', text:'A estrutura é simples: sujeito + verbo base. Mas com he/she/it, adicionamos <b>-s</b> ou <b>-es</b>.'},
+          {type:'table', headers:['Sujeito','Verbo (work)','Tradução'],
+           rows:[['I','work','Eu trabalho'],['You','work','Você trabalha'],['He/She/It','work<b>s</b>','Ele/Ela trabalha'],['We','work','Nós trabalhamos'],['They','work','Eles trabalham']]},
+          {type:'sec', title:'Exceções com -es', text:'Verbos terminados em -ch, -sh, -ss, -o, -x recebem <b>-es</b>:', items:[
+            {en:'She watches TV every day.', pt:'Ela assiste TV todo dia. (watch → watches)'},
+            {en:'He goes to the gym.', pt:'Ele vai à academia. (go → goes)'},
+            {en:'She does her homework.', pt:'Ela faz o dever de casa. (do → does)'}
+          ]},
+          {type:'sec', title:'Negação e Perguntas', text:'Usamos <b>do/does</b> para negar e perguntar:', items:[
+            {en:'I don\'t eat meat.', pt:'Eu não como carne.'},
+            {en:'She doesn\'t like coffee.', pt:'Ela não gosta de café.'},
+            {en:'Do you speak English?', pt:'Você fala inglês?'},
+            {en:'Does he live here?', pt:'Ele mora aqui?'}
+          ]},
+          {type:'sec', title:'Advérbios de Frequência', text:'Use estes advérbios para indicar com que frequência algo acontece:', items:[
+            {en:'always (sempre) — I always eat breakfast.', pt:'Eu sempre tomo café da manhã.'},
+            {en:'usually (geralmente) — She usually goes to bed at 10pm.', pt:'Ela geralmente vai dormir às 22h.'},
+            {en:'often (frequentemente) — They often watch Netflix.', pt:'Eles frequentemente assistem Netflix.'},
+            {en:'sometimes (às vezes) — He sometimes cooks dinner.', pt:'Ele às vezes cozinha o jantar.'},
+            {en:'never (nunca) — I never drink alcohol.', pt:'Eu nunca bebo álcool.'}
+          ]},
+          {type:'tip', text:'💡 <strong>Dica:</strong> O advérbio de frequência fica ANTES do verbo principal, mas DEPOIS do verbo "to be": She <b>always</b> arrives late. / She <b>is</b> always late.'}
+        ],
+        exercises:[
+          {type:'mc', q:'She ___ to school every day.', opts:['go','going','goes','gone'], ans:2},
+          {type:'fill', q:'He ___ (not like) spicy food.',blanks:[{pos:0,ans:"doesn't like",before:'He ',after:' spicy food.'}]},
+          {type:'mc', q:'___ you speak French?', opts:['Do','Does','Are','Is'], ans:0},
+          {type:'fill', q:'They always ___ (have) breakfast together.',blanks:[{pos:0,ans:'have',before:'They always ',after:' breakfast together.'}]},
+          {type:'mc', q:'Where ___ she work?', opts:['do','does','is','are'], ans:1},
+          {type:'fill', q:'My brother ___ (play) football on weekends.',blanks:[{pos:0,ans:'plays',before:'My brother ',after:' football on weekends.'}]},
+        ],
+        quiz:[
+          {q:'Which is correct for he/she/it?',opts:['He work hard.','He works hard.','He working hard.','He worked hard.'],ans:1},
+          {q:'"I ___ like vegetables."',opts:["don't","doesn't","am not","isn't"],ans:0},
+          {q:'"Does she ___ coffee?" "Yes, she ___."',opts:['drinks / does','drink / does','drink / drink','drinks / drinks'],ans:1},
+          {q:'Where is the adverb in this sentence? "She always drives to work."',opts:['Before the subject','Between subject and verb','After the object','At the end'],ans:1},
+          {q:'"They usually ___ (watch) TV at night."',opts:['watches','watch','watching','watched'],ans:1},
+        ]
+      },
+      {
+        id:'1.3', title:'Articles & Personal Pronouns',
+        obj:'Usar a/an/the corretamente e dominar os pronomes pessoais',
+        theory:[
+          {type:'intro', text:'Os artigos <b>a/an/the</b> e os pronomes pessoais são essenciais para construir qualquer frase em inglês. Vamos dominar os dois!'},
+          {type:'sec', title:'Artigo Indefinido: A / AN', text:'Usamos <b>a/an</b> quando falamos de algo pela primeira vez ou de maneira geral.'},
+          {type:'table', headers:['Artigo','Quando usar','Exemplos'],
+           rows:[['<b>A</b>','Antes de sons de CONSOANTE','a book, a car, a university (u faz som de "yu")'],['<b>AN</b>','Antes de sons de VOGAL','an apple, an hour (h mudo), an umbrella']]},
+          {type:'sec', title:'Artigo Definido: THE', text:'Usamos <b>the</b> quando o ouvinte já sabe de que estamos falando, ou é único:', items:[
+            {en:'The sun is hot.', pt:'O sol é quente. (único)'},
+            {en:'I have a dog. The dog is black.', pt:'Eu tenho um cachorro. O cachorro é preto. (mencionado antes)'},
+            {en:'Please close the door.', pt:'Por favor, feche a porta. (específica)'}
+          ]},
+          {type:'sec', title:'Quando NÃO usar artigo', items:[
+            {en:'I love music. / She plays football.', pt:'Substantivos incontáveis e esportes geralmente não usam artigo.'},
+            {en:'Brazil is a beautiful country.', pt:'Nomes de países (maioria) não usam artigo.'},
+          ]},
+          {type:'sec', title:'Pronomes Pessoais', text:''},
+          {type:'table', headers:['Pronome Sujeito','Pronome Objeto','Possessivo','Tradução'],
+           rows:[['I','me','my','eu / meu'],['You','you','your','você / seu'],['He','him','his','ele / dele'],['She','her','her','ela / dela'],['It','it','its','isso / seu'],['We','us','our','nós / nosso'],['They','them','their','eles / deles']]},
+          {type:'tip', text:'💡 <strong>Dica:</strong> "It" é usado para objetos, animais e fenômenos naturais: <b>It</b> is raining. (Está chovendo.) / The cat is sleeping. <b>It</b> is tired.'}
+        ],
+        exercises:[
+          {type:'mc', q:'I want ___ apple.', opts:['a','an','the','–'], ans:1},
+          {type:'mc', q:'___ sun rises in the east.', opts:['A','An','The','–'], ans:2},
+          {type:'fill', q:'She gave ___ (her/him) the book.',blanks:[{pos:0,ans:'him',before:'She gave ',after:' the book.'}]},
+          {type:'mc', q:'I have ___ cat. ___ cat is orange.', opts:['a / A','a / The','the / A','an / The'], ans:1},
+          {type:'fill', q:'___ (We/Us/Our) team won the match.',blanks:[{pos:0,ans:'Our',before:'',after:' team won the match.'}]},
+          {type:'mc', q:'This is ___ university.', opts:['a','an','–','the'], ans:0},
+        ],
+        quiz:[
+          {q:'"I saw ___ elephant at the zoo."',opts:['a','an','the','–'],ans:1},
+          {q:'"___ coffee is expensive today."',opts:['A','An','The','–'],ans:3},
+          {q:'Which is correct?',opts:['Give I the book.','Give me the book.','Give my the book.','Give I\'m the book.'],ans:1},
+          {q:'"The dog wagged ___ tail."',opts:['his','its','their','her'],ans:1},
+          {q:'"___ is your phone number?"',opts:['What','Which','Where','Who'],ans:0},
+        ]
+      },
+      {
+        id:'1.4', pillar:'reading', title:'Leitura — My Daily Routine',
+        obj:'Desenvolver compreensão de leitura com o método de Leitura Extensiva',
+        theory:[
+          {type:'intro', text:'📚 <b>Pilar: Leitura.</b> O método com maior comprovação científica para leitura é a <b>Leitura Extensiva</b>: ler MUITO, com textos fáceis e interessantes (onde você conhece 95%+ das palavras). Assim o vocabulário entra naturalmente pelo contexto — sem decorar listas!'},
+          {type:'sec', title:'O Método (4 passos)', items:[
+            {en:'1. Read without stopping', pt:'Leia o texto inteiro uma vez, SEM dicionário. Foque na ideia geral.'},
+            {en:'2. Read again and mark', pt:'Leia de novo e marque as palavras desconhecidas.'},
+            {en:'3. Guess from context', pt:'Tente adivinhar o significado pelo contexto ANTES de traduzir.'},
+            {en:'4. Read aloud', pt:'Leia em voz alta para conectar leitura e pronúncia americana.'},
+          ]},
+          {type:'sec', title:'📖 Texto: My Daily Routine (A1-A2)', text:'"My name is Sarah. I live in Chicago with my family. Every day, I wake up at 6:30 and drink a big cup of coffee. I work at a hospital — I am a nurse. I start work at 8:00 and finish at 5:00. After work, I go to the gym or walk in the park. In the evening, I cook dinner and watch TV with my husband. On weekends, we visit my parents or meet friends at a restaurant. I love my simple life!"'},
+          {type:'sec', title:'Vocabulário do texto', items:[
+            {en:'nurse', pt:'enfermeira'},
+            {en:'wake up', pt:'acordar'},
+            {en:'gym', pt:'academia'},
+            {en:'meet friends', pt:'encontrar amigos'},
+          ]},
+          {type:'tip', text:'💡 <strong>Materiais de leitura A1-A2 (gratuitos, com áudio americano 🇺🇸):</strong><br>• <b>ESL Fast</b> (eslfast.com) — 365 textos curtos com áudio em inglês americano<br>• <b>News in Levels</b> (newsinlevels.com) — notícias reais no Nível 1<br>• <b>VOA Learning English</b> (learningenglish.voanews.com) — o padrão-ouro do inglês americano para estudantes<br><b>Meta: 1 texto curto por dia (10 min).</b>'}
+        ],
+        exercises:[
+          {type:'mc', q:'(Sobre o texto) Where does Sarah live?', opts:['New York','Chicago','Boston','Miami'], ans:1},
+          {type:'mc', q:'What is her job?', opts:['Teacher','Doctor','Nurse','Cook'], ans:2},
+          {type:'mc', q:'What time does she start work?', opts:['6:30','7:00','8:00','5:00'], ans:2},
+          {type:'mc', q:'What does she do on weekends?', opts:['Works at the hospital','Visits her parents or meets friends','Goes to the gym alone','Cooks dinner alone'], ans:1},
+        ],
+        quiz:[
+          {q:'(Leitura) "I wake up at 6:30" significa:',opts:['Eu durmo às 6:30','Eu acordo às 6:30','Eu trabalho às 6:30','Eu saio às 6:30'],ans:1},
+          {q:'Na Leitura Extensiva, você deve ler textos:',opts:['Bem difíceis, para se desafiar','Fáceis e interessantes (95% de palavras conhecidas)','Somente com dicionário ao lado','Apenas sobre gramática'],ans:1},
+        ]
+      },
+      {
+        id:'1.5', pillar:'writing', title:'Escrita — Frases e Ordem das Palavras',
+        obj:'Escrever frases corretas com a ordem SVO, maiúsculas e pontuação',
+        theory:[
+          {type:'intro', text:'✍️ <b>Pilar: Escrita.</b> O segredo da escrita é a <b>prática diária em pequenas doses</b>: escrever 3 frases por dia funciona melhor que 1 texto por mês. Nesta aula você aprende a base de TODA frase em inglês.'},
+          {type:'sec', title:'A Ordem SVO — Subject + Verb + Object', text:'Em inglês, a ordem das palavras é rígida: <b>Sujeito + Verbo + Objeto</b>. O sujeito NUNCA pode ser omitido (diferente do português!):', items:[
+            {en:'I drink coffee every morning. ✅', pt:'Eu bebo café toda manhã. (nunca: "Drink coffee every morning" ❌)'},
+            {en:'She speaks English very well. ✅', pt:'Ela fala inglês muito bem. (o advérbio vai depois do objeto)'},
+            {en:'It is raining. ✅', pt:'Está chovendo. (em inglês, precisa do "It"!)'},
+          ]},
+          {type:'sec', title:'Maiúsculas — regras diferentes do português!', items:[
+            {en:'I — sempre maiúsculo: "My sister and I love pizza."', pt:'O pronome "I" (eu) é SEMPRE maiúsculo.'},
+            {en:'Days & months: Monday, Tuesday, January, July', pt:'Dias da semana e meses são maiúsculos (no português não!).'},
+            {en:'Languages & nationalities: English, Portuguese, Brazilian', pt:'Idiomas e nacionalidades são maiúsculos.'},
+          ]},
+          {type:'sec', title:'Prática diária: "3 Sentences a Day"', text:'Todo dia, escreva 3 frases sobre o seu dia. Modelo:', items:[
+            {en:'Today I woke up early.', pt:'Hoje eu acordei cedo.'},
+            {en:'I had lunch with my mother.', pt:'Almocei com a minha mãe.'},
+            {en:'Tomorrow I will study English.', pt:'Amanhã vou estudar inglês.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Materiais de escrita (gratuitos):</strong><br>• <b>Write & Improve</b> (writeandimprove.com) — da Cambridge: você escreve e a IA corrige na hora, de graça<br>• <b>LangCorrect</b> (langcorrect.com) — nativos americanos corrigem seus textos<br>• Um caderno só para o inglês: escreva suas 3 frases diárias nele!'}
+        ],
+        exercises:[
+          {type:'mc', q:'Qual frase está na ordem correta?', opts:['Coffee I drink every day.','I drink coffee every day.','Drink I coffee every day.','Every day coffee I drink.'], ans:1},
+          {type:'mc', q:'Como se escreve corretamente?', opts:['i am from brazil','I am from Brazil','I am from brazil','i am from Brazil'], ans:1},
+          {type:'mc', q:'"Está chovendo" em inglês:', opts:['Is raining.','Raining.','It is raining.','Rains.'], ans:2},
+          {type:'mc', q:'Qual está correto?', opts:['My birthday is in july.','My birthday is in July.','my birthday is in July.','My Birthday is in july.'], ans:1},
+        ],
+        quiz:[
+          {q:'Em inglês, o sujeito da frase:',opts:['Pode ser omitido, como no português','Nunca pode ser omitido','Só aparece em perguntas','É opcional no passado'],ans:1},
+          {q:'Quais palavras são SEMPRE maiúsculas em inglês?',opts:['Nomes de comidas','Dias, meses, idiomas e o pronome I','Todos os substantivos','Apenas nomes de pessoas'],ans:1},
+        ]
+      },
+      {
+        id:'1.6', pillar:'speaking', title:'Fala 🇺🇸 — Sons TH e o R Americano',
+        obj:'Dominar os 2 sons que mais entregam sotaque brasileiro + aprender shadowing',
+        theory:[
+          {type:'intro', text:'🗣️ <b>Pilar: Fala.</b> Seu objetivo é o <b>General American</b> — o sotaque americano padrão (o da TV e dos filmes de Hollywood). O método nº 1 para isso é o <b>shadowing</b>: repetir em voz alta junto com um nativo americano, imitando som, ritmo e entonação como um "papagaio profissional".'},
+          {type:'sec', title:'O som TH — o que os brasileiros mais erram', text:'Coloque a ponta da língua ENTRE os dentes e sopre. Existem 2 versões:', items:[
+            {en:'/θ/ sem voz: think, three, birthday, mouth', pt:'Só ar, sem vibrar a garganta. ERRO comum: falar "tink" ou "fink" ❌'},
+            {en:'/ð/ com voz: this, that, mother, brother', pt:'Mesma posição, mas vibrando a garganta. ERRO comum: falar "dis", "dat" ❌'},
+          ]},
+          {type:'sec', title:'O R americano — a marca do sotaque 🇺🇸', text:'No inglês americano, o R é SEMPRE pronunciado, em qualquer posição — a língua se curva para trás sem tocar o céu da boca (nada de R de "rato" ou de "porta" do português!):', items:[
+            {en:'car, water, teacher, hard, world', pt:'Todos com o R bem marcado — "carrr", "waterrr". (No britânico esse R some — por isso escolhemos SÓ materiais americanos.)'},
+          ]},
+          {type:'sec', title:'O Método Shadowing (passo a passo)', items:[
+            {en:'1. Choose a short video (1-2 min)', pt:'Escolha um vídeo curto do VOA Learning English ou Rachel\'s English.'},
+            {en:'2. Listen once', pt:'Ouça uma vez inteira, só prestando atenção.'},
+            {en:'3. Repeat WITH the speaker', pt:'Dê play de novo e fale JUNTO com o nativo, imitando tudo: sons, ritmo, melodia.'},
+            {en:'4. Record yourself', pt:'Grave sua voz no celular lendo o mesmo trecho.'},
+            {en:'5. Compare and repeat', pt:'Compare com o original. Repita até soar parecido. 15 min/dia transformam sua pronúncia!'},
+          ]},
+          {type:'sec', title:'Frases para praticar em voz alta agora', items:[
+            {en:'Think about this thing.', pt:'(3 sons TH diferentes em sequência!)'},
+            {en:'My brother and mother are there.', pt:'(TH com voz + R americano)'},
+            {en:'The teacher parked her car near the river.', pt:'(treino intensivo de R americano)'},
+          ]},
+          {type:'tip', text:'💡 <strong>Materiais de fala — SÓ inglês americano 🇺🇸:</strong><br>• <b>Rachel\'s English</b> (YouTube) — a professora nº 1 de pronúncia americana do mundo<br>• <b>VOA Learning English</b> — áudios lentos e claros, 100% sotaque americano<br>• <b>Sounds American</b> (YouTube) — um vídeo para cada som do inglês americano<br>• <b>ELSA Speak</b> (app) — IA que avalia seu sotaque americano em tempo real<br>• <b>YouGlish.com</b> — digite qualquer palavra e ouça nativos falando (selecione "US"!)'}
+        ],
+        exercises:[
+          {type:'mc', q:'Qual palavra tem o som /θ/ (TH sem voz)?', opts:['this','think','mother','that'], ans:1},
+          {type:'mc', q:'No inglês AMERICANO, o R final de "car" é:', opts:['Mudo (não se pronuncia)','Sempre pronunciado','Opcional','Som de H'], ans:1},
+          {type:'mc', q:'No shadowing, você deve:', opts:['Ler o texto em silêncio','Traduzir cada frase primeiro','Falar JUNTO com o nativo, imitando ritmo e som','Só ouvir muitas vezes'], ans:2},
+          {type:'mc', q:'"Mother" e "brother" têm o som:', opts:['/θ/ sem voz','/ð/ com voz (garganta vibra)','T normal','D normal'], ans:1},
+        ],
+        quiz:[
+          {q:'Por que usar SÓ materiais americanos neste curso?',opts:['Porque o britânico é errado','Para não misturar sotaques e soar consistente como um nativo americano','Porque é mais fácil','Porque tem mais vídeos'],ans:1},
+          {q:'Qual erro brasileiro típico o som TH corrige?',opts:['Falar "wadder"','Falar "tink" e "dis" em vez de think/this','Falar rápido demais','Esquecer o sujeito'],ans:1},
+        ]
+      },
+    ]
+  },
+  {
+    id:1, title:'Passado & Futuro', subtitle:'Past Simple, Future + Leitura, Escrita e Fala 🇺🇸',
+    emoji:'⏰', level:'A2',
+    lessons:[
+      {
+        id:'2.1', title:'Past Simple — Verbos Regulares',
+        obj:'Falar sobre eventos que já aconteceram usando verbos regulares',
+        theory:[
+          {type:'intro', text:'O <b>Past Simple</b> é usado para ações que <b>aconteceram e terminaram</b> no passado. Para verbos regulares, adicionamos <b>-ed</b> ao verbo.'},
+          {type:'sec', title:'Como Formar', items:[
+            {en:'work → worked (Eu trabalhei)', pt:'I worked yesterday.'},
+            {en:'play → played (Eu joguei)', pt:'She played football last Sunday.'},
+            {en:'watch → watched (Nós assistimos)', pt:'We watched a movie last night.'},
+            {en:'study → studied (Eles estudaram)', pt:'They studied all day.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Regras especiais:</strong><br>• Verbos terminados em -e: adicionamos só <b>d</b> → love → love<b>d</b><br>• Verbos terminados em consoante + y: troca o y por <b>i</b> + ed → study → stud<b>ied</b><br>• Verbos curtos (CVC): dobram a consoante → stop → stop<b>p</b>ed'},
+          {type:'sec', title:'Negação e Perguntas', text:'Usamos <b>did</b> para negar e perguntar. O verbo principal volta à forma base:', items:[
+            {en:'I didn\'t go to the party.', pt:'Eu não fui à festa.'},
+            {en:'She didn\'t call me yesterday.', pt:'Ela não me ligou ontem.'},
+            {en:'Did you enjoy the movie?', pt:'Você curtiu o filme?'},
+            {en:'Where did they go?', pt:'Onde eles foram?'}
+          ]},
+          {type:'sec', title:'Expressões de Tempo Passado', items:[
+            {en:'yesterday (ontem)', pt:'I worked yesterday.'},
+            {en:'last night/week/year (ontem à noite/semana passada/ano passado)', pt:'She called me last night.'},
+            {en:'two days/months ago (dois dias/meses atrás)', pt:'We moved here two years ago.'},
+            {en:'in 2020 (em 2020)', pt:'They met in 2018.'}
+          ]},
+        ],
+        exercises:[
+          {type:'fill', q:'She ___ (walk) to school yesterday.',blanks:[{pos:0,ans:'walked',before:'She ',after:' to school yesterday.'}]},
+          {type:'mc', q:'We ___ TV last night.', opts:['watch','watched','watches','watching'], ans:1},
+          {type:'fill', q:'They ___ (not / arrive) on time.',blanks:[{pos:0,ans:"didn't arrive",before:'They ',after:' on time.'}]},
+          {type:'mc', q:'___ you study English last week?', opts:['Do','Did','Does','Was'], ans:1},
+          {type:'fill', q:'He ___ (stop) smoking two years ago.',blanks:[{pos:0,ans:'stopped',before:'He ',after:' smoking two years ago.'}]},
+          {type:'mc', q:'I ___ a great book last month.', opts:['reading','reads','read','am reading'], ans:2},
+        ],
+        quiz:[
+          {q:'"She ___ the dishes after dinner." (wash)',opts:['washed','washs','washed off','washes'],ans:0},
+          {q:'"___ you like the party last night?"',opts:['Did','Do','Were','Was'],ans:0},
+          {q:'"I ___ (not/watch) the game yesterday."',opts:["didn't watch","don't watched","wasn't watch","not watched"],ans:0},
+          {q:'What is the past of "study"?',opts:['studyed','studied','studed','study'],ans:1},
+          {q:'"He ___ (stop) the car suddenly."',opts:['stoped','stopped','stopp','stop'],ans:1},
+        ]
+      },
+      {
+        id:'2.2', title:'Past Simple — Verbos Irregulares',
+        obj:'Dominar os verbos irregulares mais comuns em inglês',
+        theory:[
+          {type:'intro', text:'Cerca de <b>200 verbos</b> em inglês são irregulares — eles não seguem a regra do -ed. Os 30 mais comuns aparecem em quase toda conversa. Vamos aprendê-los!'},
+          {type:'sec', title:'Os Verbos Irregulares Mais Usados', text:''},
+          {type:'table', headers:['Infinitivo','Passado','Tradução','Exemplo'],
+           rows:[
+             ['be','was/were','ser/estar','She was happy.'],
+             ['go','went','ir','We went to the beach.'],
+             ['have','had','ter','I had a headache.'],
+             ['do','did','fazer','He did his homework.'],
+             ['say','said','dizer','She said "hello".'],
+             ['get','got','conseguir/receber','I got a new job.'],
+             ['make','made','fazer/criar','They made dinner.'],
+             ['see','saw','ver','We saw a great movie.'],
+             ['come','came','vir','She came late.'],
+             ['know','knew','saber/conhecer','He knew the answer.'],
+             ['take','took','pegar/levar','I took the bus.'],
+             ['give','gave','dar','She gave me a gift.'],
+             ['think','thought','pensar','I thought you knew.'],
+             ['buy','bought','comprar','He bought a new car.'],
+             ['eat','ate','comer','We ate at a restaurant.'],
+           ]},
+          {type:'tip', text:'💡 <strong>Dica de estudo:</strong> Aprenda os verbos irregulares em grupos com padrão sonoro similar: <br><b>ring-rang, sing-sang, swim-swam</b> (padrão i→a)<br><b>find-found, bind-bound, wind-wound</b> (padrão ind→ound)'},
+        ],
+        exercises:[
+          {type:'mc', q:'I ___ a great movie last night.', opts:['see','seed','saw','seen'], ans:2},
+          {type:'fill', q:'She ___ (go) to Paris last year.',blanks:[{pos:0,ans:'went',before:'She ',after:' to Paris last year.'}]},
+          {type:'mc', q:'He ___ me a beautiful gift.', opts:['give','gaved','gave','given'], ans:2},
+          {type:'fill', q:'They ___ (eat) pizza for dinner.',blanks:[{pos:0,ans:'ate',before:'They ',after:' pizza for dinner.'}]},
+          {type:'mc', q:'We ___ the answer immediately.', opts:['know','knowed','knew','known'], ans:2},
+          {type:'fill', q:'I ___ (buy) new shoes yesterday.',blanks:[{pos:0,ans:'bought',before:'I ',after:' new shoes yesterday.'}]},
+        ],
+        quiz:[
+          {q:'What is the past of "make"?',opts:['maked','made','mades','macking'],ans:1},
+          {q:'"She ___ (take) the train to work."',opts:['taked','took','takes','taken'],ans:1},
+          {q:'What is the past of "think"?',opts:['thinked','thinkt','thought','think'],ans:2},
+          {q:'"We ___ (have) a wonderful time at the party."',opts:['have','haved','had','has'],ans:2},
+          {q:'Past of "come":',opts:['comed','camed','came','come'],ans:2},
+        ]
+      },
+      {
+        id:'2.3', title:'Future: Will & Going To',
+        obj:'Expressar planos, intenções e previsões no futuro',
+        theory:[
+          {type:'intro', text:'Em inglês, existem duas formas principais de falar sobre o futuro: <b>will</b> e <b>going to</b>. Cada uma tem um uso específico — vamos aprender a diferença!'},
+          {type:'sec', title:'WILL — Decisões espontâneas e previsões', text:'Use <b>will</b> quando a decisão é tomada no momento da fala, ou para previsões sem evidência concreta.', items:[
+            {en:'I\'ll help you. (decisão no momento)', pt:'Eu vou te ajudar. (você decides agora)'},
+            {en:'It will rain tomorrow, I think.', pt:'Vai chover amanhã, acho.'},
+            {en:'Don\'t worry. I\'ll call you later.', pt:'Não se preocupe. Eu te ligo mais tarde.'},
+            {en:'Will you marry me?', pt:'Você vai se casar comigo?'}
+          ]},
+          {type:'sec', title:'GOING TO — Planos e intenções', text:'Use <b>going to</b> para planos já decididos ou quando há evidência de que algo vai acontecer:', items:[
+            {en:'I\'m going to study English every day.', pt:'Vou estudar inglês todos os dias. (plano)'},
+            {en:'She\'s going to have a baby.', pt:'Ela vai ter um bebê. (evidência visível)'},
+            {en:'We\'re going to travel to Europe next year.', pt:'Vamos viajar para a Europa no próximo ano.'},
+            {en:'Look at those clouds. It\'s going to rain.', pt:'Olha essas nuvens. Vai chover. (evidência)'}
+          ]},
+          {type:'table', headers:['','WILL','GOING TO'],
+           rows:[
+             ['Decisão espontânea','✅','❌'],
+             ['Plano já decidido','❌','✅'],
+             ['Previsão geral','✅','✅'],
+             ['Evidência concreta','❌','✅'],
+           ]},
+          {type:'tip', text:'💡 <strong>Dica:</strong> <b>Will</b> não muda para diferentes sujeitos: I will, she will, they will. A forma negativa é <b>won\'t</b> (will not): I won\'t be late!'}
+        ],
+        exercises:[
+          {type:'mc', q:'I\'m hungry. I think I ___ make a sandwich. (decisão agora)', opts:['am going to','will','going to','would'], ans:1},
+          {type:'fill', q:'We ___ (going to) travel to Europe in December.',blanks:[{pos:0,ans:'are going to',before:'We ',after:' travel to Europe in December.'}]},
+          {type:'mc', q:'Look! She ___ fall! (evidência)', opts:['will','is going to','would','shall'], ans:1},
+          {type:'fill', q:'Don\'t worry. I ___ (will + help) you.',blanks:[{pos:0,ans:"'ll help",before:'Don\'t worry. I',after:' you.'}]},
+          {type:'mc', q:'They ___ to New York next month. (plano)', opts:['will fly','is going to fly','are going to fly','flew'], ans:2},
+          {type:'mc', q:'I won\'t ___ at the party tonight.', opts:['to be','being','be','been'], ans:2},
+        ],
+        quiz:[
+          {q:'Which uses "going to"? (planned intention)',opts:['I\'ll call you when I arrive.','I\'m going to study medicine.','It will be sunny tomorrow.','I\'ll have the pasta, please.'],ans:1},
+          {q:'"Look at those clouds! It ___ rain."',opts:['will','is going to','would','should'],ans:1},
+          {q:'Negative of "will":',opts:["willn't","won't","wouldn't","not will"],ans:1},
+          {q:'"A: The phone is ringing. B: I ___ get it!" (spontaneous)',opts:['am going to','will','would','shall'],ans:1},
+          {q:'"She ___ a doctor when she grows up." (plan)',opts:["is going to be","wills be","going to be","will being"],ans:0},
+        ]
+      },
+      {
+        id:'2.4', pillar:'reading', title:'Leitura — A Trip to New York',
+        obj:'Ler narrativas no passado e extrair detalhes (skim & scan)',
+        theory:[
+          {type:'intro', text:'📚 <b>Pilar: Leitura.</b> Agora você vai aprender duas técnicas de leitura usadas em todos os testes de proficiência: <b>Skimming</b> (ler rápido para pegar a ideia geral) e <b>Scanning</b> (procurar uma informação específica, como um nome ou horário).'},
+          {type:'sec', title:'📖 Texto: A Trip to New York (A2)', text:'"Last summer, Emma and her friends visited New York City. They stayed in a small hotel in Brooklyn. On the first day, they walked across the Brooklyn Bridge and took hundreds of photos. Then they visited the Statue of Liberty and ate hot dogs in Central Park. On the last day, Emma bought souvenirs for her family and watched a show on Broadway. The trip was expensive, but it was the best vacation of her life!"'},
+          {type:'sec', title:'Vocabulário do texto', items:[
+            {en:'stayed in a hotel', pt:'ficaram hospedados em um hotel'},
+            {en:'across the bridge', pt:'atravessando a ponte'},
+            {en:'souvenirs', pt:'lembrancinhas'},
+            {en:'expensive', pt:'caro'},
+          ]},
+          {type:'sec', title:'Repare na gramática em ação!', text:'O texto usa os verbos irregulares que você aprendeu: <b>took</b> (take), <b>ate</b> (eat), <b>bought</b> (buy), <b>was</b> (be). Ler é a melhor forma de fixar a gramática — você a vê "viva" no contexto.'},
+          {type:'tip', text:'💡 <strong>Materiais de leitura A2 (gratuitos 🇺🇸):</strong><br>• <b>News in Levels — Nível 2</b> (newsinlevels.com)<br>• <b>VOA Learning English — "Let\'s Learn English"</b> — série com textos + vídeos americanos<br>• <b>ESL Fast — "Easy Reading"</b> — histórias com áudio americano<br>• Livro: <b>Oxford Bookworms Stage 1-2</b> (leitura graduada; procure na biblioteca ou versões de amostra)'}
+        ],
+        exercises:[
+          {type:'mc', q:'Where did Emma and her friends stay?', opts:['In Manhattan','In a big hotel','In a small hotel in Brooklyn','In Central Park'], ans:2},
+          {type:'mc', q:'What did they do on the FIRST day?', opts:['Watched a Broadway show','Walked across the Brooklyn Bridge','Bought souvenirs','Visited a museum'], ans:1},
+          {type:'mc', q:'"Souvenirs" são:', opts:['Comidas típicas','Lembrancinhas de viagem','Fotos','Ingressos'], ans:1},
+          {type:'mc', q:'How was the trip?', opts:['Cheap and boring','Expensive but amazing','Short and sad','Long and tiring'], ans:1},
+        ],
+        quiz:[
+          {q:'"Skimming" é a técnica de:',opts:['Ler palavra por palavra','Ler rápido para captar a ideia geral','Traduzir o texto inteiro','Decorar o vocabulário'],ans:1},
+          {q:'No texto, "bought" é o passado de:',opts:['bring','buy','be','begin'],ans:1},
+        ]
+      },
+      {
+        id:'2.5', pillar:'writing', title:'Escrita — Conectores e Parágrafos',
+        obj:'Ligar ideias com and, but, because, so e escrever seu primeiro parágrafo',
+        theory:[
+          {type:'intro', text:'✍️ <b>Pilar: Escrita.</b> Frases soltas soam robóticas. Os <b>conectores</b> (linking words) transformam frases simples em textos fluidos — é o passo entre "escrever frases" e "escrever de verdade".'},
+          {type:'table', headers:['Conector','Função','Exemplo'],
+           rows:[
+             ['<b>and</b> (e)','adição','I bought bread and milk.'],
+             ['<b>but</b> (mas)','contraste','The trip was expensive, but it was amazing.'],
+             ['<b>because</b> (porque)','causa','I stayed home because it was raining.'],
+             ['<b>so</b> (então/por isso)','consequência','It was raining, so I stayed home.'],
+             ['<b>then / after that</b> (depois)','sequência','We had dinner. Then we watched a movie.'],
+           ]},
+          {type:'sec', title:'Modelo: parágrafo sobre o fim de semana', text:'Veja como os conectores ligam tudo:', items:[
+            {en:'Last weekend was great. On Saturday, I visited my grandmother because it was her birthday. We had lunch together and ate a delicious cake. Then my friends called me, so we went to the movies. On Sunday, I was tired, but I still went for a walk in the park.', pt:'Repare: because (causa) → and (adição) → Then (sequência) → so (consequência) → but (contraste).'},
+          ]},
+          {type:'sec', title:'📝 Sua tarefa da semana', text:'Escreva um parágrafo de 5-6 frases sobre o SEU último fim de semana, usando pelo menos 4 conectores diferentes e verbos no passado. Cole no <b>Write & Improve</b> para correção automática gratuita!'},
+          {type:'tip', text:'💡 <strong>Dica de ouro:</strong> "because" responde <i>por quê?</i> e "so" mostra o <i>resultado</i>. Compare:<br>• I was tired <b>because</b> I worked a lot. (causa depois)<br>• I worked a lot, <b>so</b> I was tired. (resultado depois)'}
+        ],
+        exercises:[
+          {type:'mc', q:'"I wanted to go out, ___ it started to rain." (contraste)', opts:['and','but','because','so'], ans:1},
+          {type:'mc', q:'"She was hungry, ___ she made a sandwich." (consequência)', opts:['but','because','so','then'], ans:2},
+          {type:'fill', q:'"I stayed home ___ I was sick." (porque)',blanks:[{pos:0,ans:'because',before:'I stayed home ',after:' I was sick.'}]},
+          {type:'mc', q:'"We had dinner. ___ we watched a movie." (sequência)', opts:['Because','But','Then','So'], ans:2},
+        ],
+        quiz:[
+          {q:'"It was cold, ___ I took my jacket."',opts:['but','so','because','and'],ans:1},
+          {q:'Qual conector indica CAUSA?',opts:['so','but','because','then'],ans:2},
+        ]
+      },
+      {
+        id:'2.6', pillar:'speaking', title:'Fala 🇺🇸 — Flap T e terminações -ED',
+        obj:'Dominar o "T que vira D" americano e pronunciar o passado corretamente',
+        theory:[
+          {type:'intro', text:'🗣️ <b>Pilar: Fala.</b> O <b>Flap T</b> é a marca registrada do sotaque americano: quando o T fica entre vogais, ele vira um som rápido de D. É o que faz "water" soar como <b>"wadder"</b> na boca de um americano!'},
+          {type:'sec', title:'O Flap T em ação', items:[
+            {en:'water → "wa-der"', pt:'água'},
+            {en:'better → "be-der"', pt:'melhor'},
+            {en:'city → "si-dy"', pt:'cidade'},
+            {en:'little → "li-dle"', pt:'pequeno'},
+            {en:'What a beautiful day! → "Wha-da beau-diful day!"', pt:'Que dia lindo! (o Flap T acontece até ENTRE palavras)'},
+          ]},
+          {type:'sec', title:'As 3 pronúncias do -ED (o erro nº 1 dos brasileiros!)', text:'O -ed do passado NUNCA é lido "éd" como parece. São 3 sons — e nos dois primeiros o -ed NÃO cria sílaba extra:', items:[
+            {en:'/t/ — depois de sons surdos: worked ("workt"), watched ("watcht"), stopped ("stopt")', pt:'ERRO: falar "work-ED" ❌. É uma sílaba só!'},
+            {en:'/d/ — depois de sons sonoros: played ("playd"), lived ("livd"), called ("calld")', pt:'Também uma sílaba só.'},
+            {en:'/ɪd/ — SÓ depois de T ou D: wanted ("wan-tid"), needed ("nee-did")', pt:'Só aqui existe sílaba extra!'},
+          ]},
+          {type:'sec', title:'Pratique em voz alta (com Flap T + -ED)', items:[
+            {en:'I visited a pretty little city.', pt:'(visited = "vi-si-did", pretty = "pri-dy", little = "li-dle", city = "si-dy")'},
+            {en:'She worked a lot and played later.', pt:'(worked = "workt", played = "playd", later = "lay-der")'},
+          ]},
+          {type:'tip', text:'💡 <strong>Shadowing desta semana:</strong> no YouTube, procure <b>"Rachel\'s English Flap T"</b> e <b>"Sounds American -ed endings"</b>. Faça 15 min de shadowing com cada vídeo, grave sua voz e compare. Depois teste palavras no <b>YouGlish.com</b> (modo US) para ouvir americanos reais falando.'}
+        ],
+        exercises:[
+          {type:'mc', q:'No sotaque americano, "water" soa como:', opts:['"wa-ter" (T forte)','"wa-der" (Flap T)','"wa-er" (T mudo)','"va-ter"'], ans:1},
+          {type:'mc', q:'"Worked" se pronuncia:', opts:['"work-ED" (2 sílabas)','"workt" (1 sílaba)','"work-id"','"wor-ked"'], ans:1},
+          {type:'mc', q:'Qual verbo tem o som extra /ɪd/?', opts:['played','watched','wanted','lived'], ans:2},
+          {type:'mc', q:'O Flap T acontece quando o T está:', opts:['No início da palavra','Entre sons de vogal','No final da palavra','Antes de consoante'], ans:1},
+        ],
+        quiz:[
+          {q:'"City" no sotaque americano soa como:',opts:['"si-ty"','"si-dy"','"shi-ty"','"si-i"'],ans:1},
+          {q:'"Stopped" tem quantas sílabas?',opts:['1 ("stopt")','2 ("stop-ped")','3','Depende'],ans:0},
+        ]
+      },
+    ]
+  },
+  {
+    id:2, title:'Nível Intermediário', subtitle:'Present Perfect, Conditionals, Modals + os 4 pilares 🇺🇸',
+    emoji:'🚀', level:'B1',
+    lessons:[
+      {
+        id:'3.1', title:'Present Perfect — Experiências & Conexão com o Presente',
+        obj:'Usar o Present Perfect para falar de experiências e ações com resultado presente',
+        theory:[
+          {type:'intro', text:'O <b>Present Perfect</b> conecta o passado ao presente. É formado com <b>have/has + past participle</b>. É muito diferente do Past Simple!'},
+          {type:'sec', title:'Quando usar o Present Perfect', items:[
+            {en:'Experiências de vida: Have you ever been to Japan?', pt:'Você já esteve no Japão? (em algum momento da sua vida)'},
+            {en:'Ações recentes: I have just finished my homework.', pt:'Eu acabei de terminar meu dever.'},
+            {en:'Ações que continuam: She has lived here for 10 years.', pt:'Ela mora aqui há 10 anos (e ainda mora).'},
+            {en:'Resultados no presente: He has lost his keys. (e não as acha agora)', pt:'Ele perdeu as chaves.'},
+          ]},
+          {type:'sec', title:'Como Formar', text:''},
+          {type:'table', headers:['Sujeito','Auxiliar','Past Participle','Tradução'],
+           rows:[
+             ['I / You / We / They','have (\'ve)','worked','Eu trabalhei / Você trabalhou'],
+             ['He / She / It','has (\'s)','worked','Ele/Ela trabalhou'],
+           ]},
+          {type:'sec', title:'Past Participle — Regulares e Irregulares', items:[
+            {en:'Regular: work → worked, play → played, study → studied', pt:'Mesma forma do Past Simple regular'},
+            {en:'Irregular: go → gone, see → seen, eat → eaten, write → written', pt:'Precisa memorizar (mas muitos já viu no módulo anterior!)'},
+          ]},
+          {type:'sec', title:'Palavras-chave do Present Perfect', items:[
+            {en:'ever (alguma vez) — Have you ever tried sushi?', pt:'Você já experimentou sushi?'},
+            {en:'never (nunca) — I have never been to Europe.', pt:'Eu nunca fui à Europa.'},
+            {en:'already (já) — She has already eaten.', pt:'Ela já comeu.'},
+            {en:'yet (ainda) — I haven\'t finished yet.', pt:'Eu ainda não terminei.'},
+            {en:'just (acabar de) — He has just arrived.', pt:'Ele acabou de chegar.'},
+            {en:'for (por) — They have lived here for 5 years.', pt:'Eles moram aqui há 5 anos.'},
+            {en:'since (desde) — I have known her since 2010.', pt:'Eu a conheço desde 2010.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Present Perfect vs Past Simple:</strong><br><b>I went to Paris in 2019.</b> (Past Simple — tempo específico, terminado)<br><b>I have been to Paris.</b> (Present Perfect — experiência de vida, sem tempo específico)'}
+        ],
+        exercises:[
+          {type:'mc', q:'I ___ just arrived home.', opts:['have','has','had','did'], ans:0},
+          {type:'fill', q:'She ___ (never / try) sushi before.',blanks:[{pos:0,ans:"has never tried",before:'She ',after:' sushi before.'}]},
+          {type:'mc', q:'Have you ___ been to London?', opts:['ever','never','already','just'], ans:0},
+          {type:'fill', q:'They ___ (live) here since 2018.',blanks:[{pos:0,ans:'have lived',before:'They ',after:' here since 2018.'}]},
+          {type:'mc', q:'He ___ already ___ his lunch.', opts:['have / eaten','has / eaten','has / ate','have / ate'], ans:1},
+          {type:'mc', q:'I haven\'t finished my work ___', opts:['already','ever','yet','just'], ans:2},
+        ],
+        quiz:[
+          {q:'"___ you ever eaten Thai food?"',opts:['Did','Have','Had','Was'],ans:1},
+          {q:'Present Perfect of "see":',opts:['saw','seen','have saw','has see'],ans:1},
+          {q:'"She ___ (already/finish) the report."',opts:['already finished','has already finished','had already finished','already has finished'],ans:1},
+          {q:'Which uses Present Perfect correctly?',opts:['I have seen her yesterday.','I have seen her last week.','I have seen her before.','I have seen her in 2019.'],ans:2},
+          {q:'"I haven\'t slept ___ two days." (for/since)',opts:['since','for','during','in'],ans:1},
+        ]
+      },
+      {
+        id:'3.2', title:'Conditionals — Se isso, então aquilo',
+        obj:'Expressar condições e seus resultados nos diferentes tipos de condicional',
+        theory:[
+          {type:'intro', text:'Os <b>Conditionals</b> (condicionais) expressam situações e seus resultados. A estrutura usa sempre o <b>IF</b> (se). Vamos aprender os 3 principais tipos!'},
+          {type:'sec', title:'Zero Conditional — Fatos e Verdades Gerais', text:'Situações sempre verdadeiras, leis da natureza, hábitos. If + present, present:', items:[
+            {en:'If you heat water, it boils.', pt:'Se você aquecer água, ela ferve.'},
+            {en:'If I eat too much, I feel sick.', pt:'Se eu como demais, fico mal.'},
+            {en:'Plants die if they don\'t get water.', pt:'Plantas morrem se não recebem água.'},
+          ]},
+          {type:'sec', title:'First Conditional — Situações Reais/Possíveis', text:'Situações que podem realmente acontecer no futuro. If + present, WILL + base verb:', items:[
+            {en:'If it rains tomorrow, I will stay home.', pt:'Se chover amanhã, ficarei em casa. (possível)'},
+            {en:'She will pass the exam if she studies.', pt:'Ela passará no exame se estudar.'},
+            {en:'If you call me, I\'ll come.', pt:'Se você me ligar, eu vou.'},
+          ]},
+          {type:'sec', title:'Second Conditional — Situações Imaginárias (Presente)', text:'Situações hipotéticas ou improváveis no presente/futuro. If + past simple, WOULD + base verb:', items:[
+            {en:'If I had more money, I would buy a house.', pt:'Se eu tivesse mais dinheiro, compraria uma casa. (mas não tenho)'},
+            {en:'She would travel the world if she could.', pt:'Ela viajaria o mundo se pudesse.'},
+            {en:'If I were you, I would apologize.', pt:'Se eu fosse você, me desculparia.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Dica:</strong> No Second Conditional, usamos <b>"were"</b> para todos os sujeitos no "If clause" (forma mais formal): If I <b>were</b> rich... / If she <b>were</b> here... Isso é diferente do passado normal!'}
+        ],
+        exercises:[
+          {type:'mc', q:'If you mix red and blue, you ___ purple. (Zero)', opts:['get','got','will get','would get'], ans:0},
+          {type:'fill', q:'If it rains, I ___ (will/stay) at home. (First)',blanks:[{pos:0,ans:"'ll stay",before:'If it rains, I',after:' at home.'}]},
+          {type:'mc', q:'If I ___ a million dollars, I would travel the world. (Second)', opts:['have','had','will have','would have'], ans:1},
+          {type:'fill', q:'She would buy a new car if she ___ (have) enough money.',blanks:[{pos:0,ans:'had',before:'She would buy a new car if she ',after:' enough money.'}]},
+          {type:'mc', q:'What type: "If I were the president, I would change everything."', opts:['Zero','First','Second','Third'], ans:2},
+          {type:'mc', q:'If you don\'t eat, you ___ hungry. (Zero)', opts:['would feel','will feel','feel','felt'], ans:2},
+        ],
+        quiz:[
+          {q:'Which is a First Conditional?',opts:['If I have time, I studied.','If I had time, I would study.','If I have time, I will study.','If I had time, I studied.'],ans:2},
+          {q:'"If water ___ 100°C, it boils." (Zero Conditional)',opts:['would reach','reaches','reached','will reach'],ans:1},
+          {q:'"I ___ happier if I lived by the sea." (Second)',opts:['am','will be','would be','was'],ans:2},
+          {q:'Complete: "If she ___ harder, she will pass." (First)',opts:['study','studies','studied','would study'],ans:1},
+          {q:'"If I were you, I ___ accept the offer."',opts:['will','would','should','shall'],ans:1},
+        ]
+      },
+      {
+        id:'3.3', title:'Modal Verbs — can, could, should, must',
+        obj:'Usar verbos modais para expressar habilidade, conselho e obrigação',
+        theory:[
+          {type:'intro', text:'Os <b>Modal Verbs</b> são auxiliares que expressam possibilidade, habilidade, permissão, obrigação e conselho. Eles não mudam para he/she/it e são seguidos pelo verbo base.'},
+          {type:'table', headers:['Modal','Uso principal','Exemplo'],
+           rows:[
+             ['CAN','Habilidade, permissão','I can speak three languages.'],
+             ['CAN\'T','Incapacidade, proibição','You can\'t park here.'],
+             ['COULD','Habilidade no passado, pedido polido','I could swim when I was 5. / Could you help me?'],
+             ['SHOULD','Conselho, recomendação','You should see a doctor.'],
+             ['SHOULDN\'T','Conselho negativo','You shouldn\'t eat so much sugar.'],
+             ['MUST','Obrigação forte','You must wear a seatbelt.'],
+             ['MUSTN\'T','Proibição','You mustn\'t smoke here.'],
+             ['DON\'T HAVE TO','Sem obrigação (é opcional)','You don\'t have to come if you\'re busy.'],
+             ['MIGHT / MAY','Possibilidade','It might rain later. / May I come in?'],
+           ]},
+          {type:'sec', title:'Exemplos no contexto', items:[
+            {en:'She can play the piano beautifully.', pt:'Ela consegue tocar piano lindamente.'},
+            {en:'Could you speak more slowly, please?', pt:'Você poderia falar mais devagar, por favor?'},
+            {en:'You should call your mother more often.', pt:'Você deveria ligar para sua mãe mais frequentemente.'},
+            {en:'Students must arrive on time.', pt:'Os alunos devem chegar na hora.'},
+            {en:'You don\'t have to pay now.', pt:'Você não precisa pagar agora. (mas pode se quiser)'},
+            {en:'She might be at home.', pt:'Ela pode estar em casa. (não tenho certeza)'},
+          ]},
+          {type:'tip', text:'💡 <strong>Must vs Have to:</strong> Ambos expressam obrigação, mas <b>must</b> vem de dentro (decisão pessoal) e <b>have to</b> vem de fora (regra, lei): "I <b>must</b> study more." (eu mesmo decidi) vs "I <b>have to</b> study for the exam." (é necessário externamente)'}
+        ],
+        exercises:[
+          {type:'mc', q:'She ___ play the guitar. She\'s amazing!', opts:['must','can','should','might'], ans:1},
+          {type:'mc', q:'You ___ smoke here. It\'s forbidden.', opts:["should","mustn't","don't have to","couldn't"], ans:1},
+          {type:'fill', q:'You ___ (should) eat more vegetables.',blanks:[{pos:0,ans:'should',before:'You ',after:' eat more vegetables.'}]},
+          {type:'mc', q:'I\'m not sure, but she ___ be at the library.', opts:['can','must','might','should'], ans:2},
+          {type:'mc', q:'You ___ pay — it\'s free! (não precisa)', opts:["mustn't","couldn't","don't have to","can't"], ans:2},
+          {type:'fill', q:'___ you help me with this, please?',blanks:[{pos:0,ans:'Could',before:'',after:' you help me with this, please?'}]},
+        ],
+        quiz:[
+          {q:'Which expresses ability?',opts:['You should go.','I might call.','She can swim.','They must stay.'],ans:2},
+          {q:'"You ___ drive. You\'ve been drinking." (prohibition)',opts:["shouldn't","mustn't","don't have to","couldn't"],ans:1},
+          {q:'"___ I use your phone?" (polite request)',opts:['Should','Must','Could','Would'],ans:2},
+          {q:'Difference: "You mustn\'t vs you don\'t have to"',opts:['They mean the same.','Mustn\'t = prohibited; don\'t have to = not necessary.','Don\'t have to = prohibited; mustn\'t = not necessary.','Both express advice.'],ans:1},
+          {q:'"He ___ be tired — he worked all night."',opts:['should','could','must','might'],ans:2},
+        ]
+      },
+      {
+        id:'3.4', pillar:'reading', title:'Leitura — Deduzir Vocabulário pelo Contexto',
+        obj:'Ler artigos reais e descobrir palavras novas SEM dicionário',
+        theory:[
+          {type:'intro', text:'📚 <b>Pilar: Leitura.</b> No nível B1, a habilidade-chave é <b>inferir pelo contexto</b>: descobrir o significado de uma palavra nova pelas pistas ao redor. Nativos fazem isso o tempo todo — e é assim que seu vocabulário explode sem decoreba.'},
+          {type:'sec', title:'📖 Texto: The New Way of Working (B1)', text:'"Since the pandemic, millions of Americans have started working from home. Many employees say they are more productive when they avoid long commutes — some people used to spend two hours a day driving to the office and back. However, some managers worry that remote workers feel isolated and miss the important conversations that happen naturally in an office. Many companies have adopted hybrid models, where employees work from home two or three days a week. Experts believe this trend will continue, as workers now consider flexibility as important as salary."'},
+          {type:'sec', title:'Inferindo pelo contexto — veja a técnica', items:[
+            {en:'"commutes — some people used to spend two hours a day driving to the office"', pt:'O próprio texto explica: commute = trajeto casa-trabalho. Você não precisou do dicionário!'},
+            {en:'"feel isolated and miss the important conversations"', pt:'Isolated aparece junto de "sentir falta de conversas" → isolado, sozinho.'},
+            {en:'"hybrid models, where employees work from home two or three days a week"', pt:'A oração com "where" define a palavra: híbrido = misto casa/escritório.'},
+          ]},
+          {type:'sec', title:'Repare na gramática em ação!', text:'O texto usa o <b>Present Perfect</b> que você acabou de aprender: "have started", "have adopted" — ações passadas com efeito no presente. Leitura e gramática sempre juntas!'},
+          {type:'tip', text:'💡 <strong>Materiais de leitura B1 (gratuitos 🇺🇸):</strong><br>• <b>VOA Learning English</b> — notícias americanas em inglês intermediário (com áudio!)<br>• <b>News in Levels — Nível 3</b><br>• <b>ReadTheory</b> (readtheory.org) — textos adaptativos com perguntas, gratuito<br>• Livros: <b>"Charlotte\'s Web"</b>, <b>"The Giver"</b>, <b>"Diary of a Wimpy Kid"</b> — clássicos americanos de linguagem acessível'}
+        ],
+        exercises:[
+          {type:'mc', q:'According to the text, why do many employees prefer working from home?', opts:['They earn more money','They are more productive without long commutes','They dislike their managers','They can travel more'], ans:1},
+          {type:'mc', q:'What is a "commute"?', opts:['A type of salary','A work meeting','The trip between home and work','A computer program'], ans:2},
+          {type:'mc', q:'What do some managers worry about?', opts:['Remote workers feel isolated','Employees work too much','Salaries are too high','Offices are too small'], ans:0},
+          {type:'mc', q:'A "hybrid model" means employees:', opts:['Work only from home','Work only at the office','Mix home and office days','Work on weekends'], ans:2},
+        ],
+        quiz:[
+          {q:'Inferir pelo contexto significa:',opts:['Traduzir com dicionário','Descobrir o significado pelas pistas do texto','Pular as palavras difíceis','Decorar listas de palavras'],ans:1},
+          {q:'"Workers now consider flexibility as important as salary" — ou seja:',opts:['Salário importa mais','Flexibilidade importa tanto quanto salário','Flexibilidade não importa','Ninguém quer salário'],ans:1},
+        ]
+      },
+      {
+        id:'3.5', pillar:'writing', title:'Escrita — Parágrafos Estruturados e E-mails',
+        obj:'Escrever parágrafos com estrutura profissional e e-mails formais/informais',
+        theory:[
+          {type:'intro', text:'✍️ <b>Pilar: Escrita.</b> Todo bom parágrafo em inglês segue a mesma arquitetura ensinada nas escolas americanas: <b>Topic Sentence → Supporting Sentences → Concluding Sentence</b>. Domine isso e você escreve QUALQUER coisa.'},
+          {type:'sec', title:'A estrutura do parágrafo americano', items:[
+            {en:'1. Topic Sentence — a ideia principal', pt:'"Learning English online has many advantages."'},
+            {en:'2. Supporting Sentences — provas, exemplos, detalhes', pt:'"First, you can study anywhere. In addition, most resources are free. For example, VOA offers hundreds of lessons."'},
+            {en:'3. Concluding Sentence — fecha a ideia', pt:'"For these reasons, online learning is an excellent choice."'},
+          ]},
+          {type:'sec', title:'E-mail informal vs formal', text:''},
+          {type:'table', headers:['','Informal (amigos)','Formal (trabalho)'],
+           rows:[
+             ['Saudação','Hi John! / Hey!','Dear Mr. Smith, / Dear Hiring Team,'],
+             ['Abertura','How\'s it going?','I am writing to inquire about...'],
+             ['Pedido','Can you send me...?','Could you please send me...? / I would appreciate...'],
+             ['Despedida','Talk soon! / Cheers,','Best regards, / Sincerely,'],
+           ]},
+          {type:'sec', title:'📝 Sua tarefa da semana', text:'Escreva um e-mail formal (60-80 palavras) se candidatando a uma vaga de emprego fictícia: saudação formal, quem você é, por que tem interesse, pedido de retorno e despedida. Corrija no Write & Improve.'},
+          {type:'tip', text:'💡 <strong>Conectores para subir de nível:</strong> First (primeiro), In addition / Moreover (além disso), For example (por exemplo), However (porém), Therefore (portanto), In conclusion (concluindo). Use 2-3 por parágrafo — nem mais, nem menos.'}
+        ],
+        exercises:[
+          {type:'mc', q:'A "topic sentence" é:', opts:['A última frase do parágrafo','A frase com a ideia principal','Um exemplo','A saudação do e-mail'], ans:1},
+          {type:'mc', q:'Em um e-mail FORMAL, a melhor saudação é:', opts:['Hey Bob!','Hi!','Dear Mr. Johnson,','What\'s up,'], ans:2},
+          {type:'mc', q:'"Além disso" em inglês formal:', opts:['But','In addition','So','Then'], ans:1},
+          {type:'mc', q:'Melhor despedida formal:', opts:['Cheers!','See ya!','Best regards,','Bye bye,'], ans:2},
+        ],
+        quiz:[
+          {q:'A ordem correta do parágrafo americano é:',opts:['Conclusão → exemplos → ideia','Topic sentence → supporting → concluding','Exemplos → conclusão → ideia','Não há ordem fixa'],ans:1},
+          {q:'"Could you please send me the report?" é adequado para:',opts:['Mensagem a um amigo íntimo','E-mail profissional','Rede social','Nenhum contexto'],ans:1},
+        ]
+      },
+      {
+        id:'3.6', pillar:'speaking', title:'Fala 🇺🇸 — Schwa, Word Stress e Reduções',
+        obj:'Dominar o ritmo americano: o som schwa, a sílaba tônica e gonna/wanna',
+        theory:[
+          {type:'intro', text:'🗣️ <b>Pilar: Fala.</b> O que separa o intermediário do fluente não é vocabulário — é <b>ritmo</b>. O inglês americano é uma língua de "picos e vales": sílabas fortes bem marcadas e sílabas fracas quase engolidas com o som <b>schwa /ə/</b> — o som mais comum do inglês!'},
+          {type:'sec', title:'O schwa /ə/ — o "ã" preguiçoso', text:'Toda sílaba átona tende a virar um som neutro e rapidíssimo, tipo "ã":', items:[
+            {en:'about → "ə-BOUT"', pt:'a primeira sílaba quase desaparece'},
+            {en:'banana → "bə-NA-nə"', pt:'só a sílaba do meio é forte!'},
+            {en:'teacher → "TEA-chər"', pt:'o -er final é sempre schwa + R americano'},
+          ]},
+          {type:'sec', title:'Word Stress — a sílaba tônica muda tudo', items:[
+            {en:'PREsent (substantivo: presente) vs preSENT (verbo: apresentar)', pt:'A mesma palavra muda de classe conforme o stress!'},
+            {en:'PHOtograph → phoTOgraphy → photoGRAphic', pt:'O stress se move — e as outras sílabas viram schwa.'},
+          ]},
+          {type:'sec', title:'Reduções — como americanos falam DE VERDADE', items:[
+            {en:'going to → gonna: "I\'m gonna call you."', pt:'Vou te ligar.'},
+            {en:'want to → wanna: "Do you wanna go?"', pt:'Você quer ir?'},
+            {en:'got to → gotta: "I gotta run!"', pt:'Tenho que correr!'},
+            {en:'kind of → kinda: "I\'m kinda tired."', pt:'Estou meio cansada.'},
+            {en:'What do you... → "Whaddaya think?"', pt:'O que você acha?'},
+          ]},
+          {type:'sec', title:'Linking — palavras que se conectam', items:[
+            {en:'an apple → "a-NA-pple"', pt:'consoante final + vogal inicial se unem'},
+            {en:'turn it off → "tur-ni-DOFF"', pt:'três palavras viram uma!'},
+          ]},
+          {type:'tip', text:'💡 <strong>Shadowing desta semana:</strong> Rachel\'s English tem playlists inteiras sobre <b>schwa</b> e <b>reductions</b>. Assista "Rachel\'s English — American English Reductions" e pratique 15 min/dia. Nos apps: <b>ELSA Speak</b> avalia seu ritmo americano frase a frase.'}
+        ],
+        exercises:[
+          {type:'mc', q:'O schwa /ə/ é:', opts:['O som mais raro do inglês','O som neutro das sílabas átonas — o mais comum do inglês','Um som só do britânico','Uma vogal longa'], ans:1},
+          {type:'mc', q:'"Gonna" é a redução de:', opts:['go now','going to','gone to','got a'], ans:1},
+          {type:'mc', q:'Em "banana", a sílaba forte é:', opts:['ba-','-NA-','-na (final)','todas iguais'], ans:1},
+          {type:'mc', q:'"I wanna go" significa:', opts:['I will go','I want to go','I would go','I went'], ans:1},
+        ],
+        quiz:[
+          {q:'"I gotta run" significa:',opts:['Eu corro devagar','Eu tenho que correr / ir embora','Eu gosto de correr','Eu corri'],ans:1},
+          {q:'PREsent vs preSENT mostram que o stress:',opts:['Não importa em inglês','Pode mudar a classe/significado da palavra','Só existe em verbos','É sempre na primeira sílaba'],ans:1},
+        ]
+      },
+    ]
+  },
+  {
+    id:3, title:'Nível Avançado', subtitle:'Past Perfect, Passive, Phrasal Verbs + os 4 pilares 🇺🇸',
+    emoji:'🏆', level:'B2',
+    lessons:[
+      {
+        id:'4.1', title:'Past Perfect — O que aconteceu antes',
+        obj:'Expressar ações que ocorreram antes de outras no passado',
+        theory:[
+          {type:'intro', text:'O <b>Past Perfect</b> é usado para mostrar que uma ação aconteceu <b>antes de outra ação no passado</b>. É formado com <b>had + past participle</b>.'},
+          {type:'sec', title:'Como funciona', items:[
+            {en:'When I arrived, she had already left.', pt:'Quando eu cheguei, ela já tinha saído. (ela saiu ANTES de eu chegar)'},
+            {en:'He had never seen snow before that trip.', pt:'Ele nunca tinha visto neve antes daquela viagem.'},
+            {en:'By the time the movie started, we had found our seats.', pt:'Quando o filme começou, já tínhamos achado nossos lugares.'},
+          ]},
+          {type:'table', headers:['Situação','Past Simple','Past Perfect'],
+           rows:[
+             ['Quando cheguei','I arrived (depois)','She had left (antes)'],
+             ['Quando abri a geladeira','I opened the fridge','The milk had expired'],
+             ['Quando o jogo terminou','The game finished','We had scored 3 goals'],
+           ]},
+          {type:'sec', title:'Palavras-chave', items:[
+            {en:'by the time (quando/até quando)', pt:'By the time she arrived, I had already cooked dinner.'},
+            {en:'before (antes de)', pt:'He had studied Spanish before moving to Madrid.'},
+            {en:'after (depois de)', pt:'After she had read the book, she watched the movie.'},
+            {en:'when (quando)', pt:'When I woke up, it had already stopped raining.'},
+            {en:'already / never / just', pt:'She had never been to Asia before that trip.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Regra de ouro:</strong> Use Past Perfect para a ação que aconteceu <b>primeiro</b>, e Past Simple para a ação que aconteceu <b>depois</b>: "She <b>had finished</b> (primeiro) dinner when he <b>arrived</b> (depois)."'}
+        ],
+        exercises:[
+          {type:'mc', q:'When I got to the cinema, the movie ___ already started.', opts:['has','have','had','did'], ans:2},
+          {type:'fill', q:'She ___ (never / try) sushi before she visited Japan.',blanks:[{pos:0,ans:'had never tried',before:'She ',after:' sushi before she visited Japan.'}]},
+          {type:'mc', q:'By the time he called, I ___ already left.', opts:['have','has','had','was'], ans:2},
+          {type:'fill', q:'After they ___ (eat), they went for a walk.',blanks:[{pos:0,ans:'had eaten',before:'After they ',after:', they went for a walk.'}]},
+          {type:'mc', q:'I realized I ___ forgotten my wallet.', opts:['have','has','had','was'], ans:2},
+          {type:'mc', q:'"When she ___, he ___ already ___ ." Choose the best.',opts:['arrived / had / left','had arrived / left / –','arrives / had / left','arrived / has / left'],ans:0},
+        ],
+        quiz:[
+          {q:'Which is Past Perfect?',opts:['She has eaten.','She ate.','She had eaten.','She was eating.'],ans:2},
+          {q:'"When I woke up, my sister ___ (already go) to school."',opts:['has already gone','had already gone','already went','already has gone'],ans:1},
+          {q:'Which action happened FIRST?',opts:['He arrived / We had finished dinner','We finished dinner / he had arrived','Both are the same','Neither — they happened together'],ans:1},
+          {q:'"She ___ never ___ such a beautiful sunset before."',opts:['has / seen','had / seen','had / saw','have / seen'],ans:1},
+          {q:'Complete: "___ the time we reached the station, the train ___."',opts:['By / had left','When / has left','After / had leave','Before / left'],ans:0},
+        ]
+      },
+      {
+        id:'4.2', title:'Passive Voice — O foco no resultado',
+        obj:'Construir frases na voz passiva para diferentes tempos verbais',
+        theory:[
+          {type:'intro', text:'Na <b>voz ativa</b>, o sujeito pratica a ação. Na <b>voz passiva</b>, o sujeito recebe a ação. Usamos a voz passiva quando o agente é desconhecido, óbvio ou não importante.'},
+          {type:'sec', title:'Estrutura', text:'<b>Sujeito + to be (conjugado) + past participle + (by + agente)</b>'},
+          {type:'table', headers:['Tempo','Ativo','Passivo'],
+           rows:[
+             ['Present Simple','They clean the office.','The office is cleaned (by them).'],
+             ['Past Simple','She wrote the letter.','The letter was written (by her).'],
+             ['Present Perfect','They have sent the email.','The email has been sent.'],
+             ['Future','They will announce the results.','The results will be announced.'],
+             ['Modal','You must sign this form.','This form must be signed.'],
+           ]},
+          {type:'sec', title:'Exemplos do cotidiano', items:[
+            {en:'English is spoken all over the world.', pt:'O inglês é falado no mundo inteiro.'},
+            {en:'This bridge was built in 1990.', pt:'Esta ponte foi construída em 1990.'},
+            {en:'The package will be delivered tomorrow.', pt:'O pacote será entregue amanhã.'},
+            {en:'The movie has been seen by millions.', pt:'O filme foi visto por milhões.'},
+            {en:'Mistakes were made.', pt:'Erros foram cometidos.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Quando usar passiva:</strong><br>• Quando o agente é desconhecido: "My car was stolen."<br>• Quando o agente é óbvio: "The president was elected."<br>• Em textos formais/científicos: "The results were analyzed."<br>• Para dar ênfase ao objeto: "This book was written by Machado de Assis."'}
+        ],
+        exercises:[
+          {type:'mc', q:'"The letter ___ (write) by her." (Past Simple Passive)', opts:['was written','is written','has written','wrote'], ans:0},
+          {type:'fill', q:'The cake ___ (eat) before we arrived.',blanks:[{pos:0,ans:'had been eaten',before:'The cake ',after:' before we arrived.'}]},
+          {type:'mc', q:'English ___ spoken in many countries.', opts:['is','are','was','has'], ans:0},
+          {type:'fill', q:'The new hospital ___ (build) next year.',blanks:[{pos:0,ans:'will be built',before:'The new hospital ',after:' next year.'}]},
+          {type:'mc', q:'The results ___ announced tomorrow.', opts:['will be','are being','were','has been'], ans:0},
+          {type:'mc', q:'Turn active to passive: "They invented the telephone in 1876."', opts:['The telephone was invented in 1876.','The telephone invented in 1876.','The telephone is invented in 1876.','The telephone has invented in 1876.'], ans:0},
+        ],
+        quiz:[
+          {q:'Passive of "She cleans the house":',opts:['The house is cleaned by her.','The house was cleaned by her.','The house cleaned by her.','The house is being clean.'],ans:0},
+          {q:'Which is correct passive?',opts:['It was builded in 1990.','It was built in 1990.','It is build in 1990.','It built in 1990.'],ans:1},
+          {q:'"The report ___ (submit) by Friday." (future passive)',opts:['will submitted','is being submitted','will be submitted','has been submitted'],ans:2},
+          {q:'Why use passive here? "Mistakes were made."',opts:['The agent is important.','The agent is unknown or we avoid blame.','It\'s more active.','To describe present situations.'],ans:1},
+          {q:'Present Perfect Passive of "They have arrested the suspect":',opts:['The suspect is arrested.','The suspect was arrested.','The suspect has been arrested.','The suspect had been arrested.'],ans:2},
+        ]
+      },
+      {
+        id:'4.3', title:'Phrasal Verbs & Idioms',
+        obj:'Compreender e usar phrasal verbs e expressões idiomáticas essenciais',
+        theory:[
+          {type:'intro', text:'Os <b>Phrasal Verbs</b> são verbos + preposição/advérbio que criam um novo significado. São ESSENCIAIS para entender inglês natural em filmes, músicas e conversas!'},
+          {type:'sec', title:'Phrasal Verbs Essenciais — Grupo 1: Cotidiano', text:''},
+          {type:'table', headers:['Phrasal Verb','Significado','Exemplo'],
+           rows:[
+             ['wake up','acordar','I wake up at 7am every day.'],
+             ['get up','levantar','She gets up and showers immediately.'],
+             ['give up','desistir','Never give up on your dreams!'],
+             ['pick up','pegar/buscar','Can you pick me up at the airport?'],
+             ['turn on/off','ligar/desligar','Turn off the TV before sleeping.'],
+             ['look up','pesquisar','Look up the word in the dictionary.'],
+             ['look forward to','aguardar ansiosamente','I\'m looking forward to the weekend.'],
+             ['run out of','ficar sem','We ran out of milk.'],
+             ['get along with','se dar bem com','I get along well with my colleagues.'],
+             ['figure out','descobrir/entender','I can\'t figure out this problem.'],
+           ]},
+          {type:'sec', title:'Idioms Essenciais', text:'Expressões cujo significado NÃO é literal:'},
+          {type:'table', headers:['Idiom','Significado','Exemplo'],
+           rows:[
+             ['Break a leg!','Boa sorte!','Break a leg at your presentation!'],
+             ['It\'s raining cats and dogs','Está chovendo muito','Take an umbrella — it\'s raining cats and dogs.'],
+             ['Bite the bullet','Engolir o sapo / encarar','I hate the dentist but I had to bite the bullet.'],
+             ['Hit the nail on the head','Acertar na mosca','You hit the nail on the head with that analysis.'],
+             ['Under the weather','Não estar bem / indisposto','I\'m feeling a bit under the weather today.'],
+             ['Cost an arm and a leg','Custar muito caro','That restaurant costs an arm and a leg.'],
+             ['Piece of cake','Moleza / fácil','The exam was a piece of cake!'],
+             ['Once in a blue moon','Raramente','I see my old friends once in a blue moon.'],
+           ]},
+          {type:'tip', text:'💡 <strong>Dica:</strong> Aprenda phrasal verbs em contexto, não isolados. Assista séries em inglês e preste atenção quando eles aparecem. Pause e repita a frase em voz alta!'}
+        ],
+        exercises:[
+          {type:'mc', q:'She ___ Spanish after living in Mexico. (to learn/start speaking)', opts:['picked up','woke up','gave up','turned up'], ans:0},
+          {type:'mc', q:'"I\'m really ___ ___ our trip to Lisbon!" (animada / esperando)', opts:['looking after','looking forward to','looking up to','looking for'], ans:1},
+          {type:'fill', q:'Never ___ (give up) on your dreams!',blanks:[{pos:0,ans:'give up',before:'Never ',after:' on your dreams!'}]},
+          {type:'mc', q:'"The exam was ___ ___ ___!" (muito fácil)', opts:['piece of cake','raining cats','break a leg','blue moon'], ans:0},
+          {type:'mc', q:'We ___ ___ coffee. I need to buy some. (ficamos sem)', opts:['ran out of','gave out','picked up','turned off'], ans:0},
+          {type:'fill', q:'I can\'t ___ (figure out) why she\'s upset.',blanks:[{pos:0,ans:'figure out',before:"I can't ",after:" why she's upset."}]},
+        ],
+        quiz:[
+          {q:'"Give up" means:',opts:['Dar de cima','Desistir','Entregar algo','Dar uma pausa'],ans:1},
+          {q:'"I\'m looking forward to ___ you soon."',opts:['see','saw','seen','seeing'],ans:3},
+          {q:'What does "break a leg" mean?',opts:['Se machucar','Boa sorte','Correr rápido','Danificar algo'],ans:1},
+          {q:'"She ___ out of patience." (ficou sem)',opts:['gave','ran','got','took'],ans:1},
+          {q:'What does "under the weather" mean?',opts:['Embaixo da chuva','Estar doente/mal','Clima chuvoso','Sentir frio'],ans:1},
+        ]
+      },
+      {
+        id:'4.4', pillar:'reading', title:'Leitura — Literatura Americana Autêntica',
+        obj:'Ler textos literários reais, entendendo tom, implícitos e estilo',
+        theory:[
+          {type:'intro', text:'📚 <b>Pilar: Leitura.</b> No B2, você se despede dos textos adaptados: agora é literatura e imprensa <b>autênticas</b>. O objetivo muda — não é mais só "entender o que aconteceu", mas captar <b>tom, ironia e o que NÃO foi dito</b>.'},
+          {type:'sec', title:'📖 Texto: The Last Train (B2, estilo literário)', text:'"The station was almost empty when Ruth arrived. She had run six blocks through the rain, and now she stood on the platform, breathing hard, watching the red lights of the last train disappear into the dark. She checked her phone: no messages. Of course there were no messages. After what she had said at dinner, she hadn\'t really expected him to call. A cold wind moved through the station. Ruth pulled her coat tighter and, for the first time that night, allowed herself to admit that she might have been wrong."'},
+          {type:'sec', title:'Lendo nas entrelinhas (o que o texto NÃO diz)', items:[
+            {en:'"Of course there were no messages."', pt:'O "of course" é amargo/irônico — ela sabia que ele não ligaria, mas esperava mesmo assim.'},
+            {en:'"After what she had said at dinner..."', pt:'O texto nunca conta O QUE ela disse — literatura de verdade confia no leitor. Note o Past Perfect: "had said", "had run" (antes da cena atual!).'},
+            {en:'"allowed herself to admit"', pt:'Ela vinha resistindo a admitir o erro — um verbo revela toda a luta interna.'},
+          ]},
+          {type:'sec', title:'Trilha de leitura B2 (autores americanos 🇺🇸)', items:[
+            {en:'"The Gift of the Magi" — O. Henry (conto, GRÁTIS no Project Gutenberg)', pt:'O conto americano mais famoso de todos — perfeito para começar.'},
+            {en:'"The Old Man and the Sea" — Ernest Hemingway', pt:'Frases curtas e diretas: difícil na profundidade, não na gramática.'},
+            {en:'"Of Mice and Men" — John Steinbeck', pt:'Curto, com muito diálogo americano coloquial.'},
+            {en:'"Charlotte\'s Web" → "Harry Potter" → romances adultos', pt:'Escada de dificuldade progressiva testada por milhões de estudantes.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Materiais gratuitos:</strong><br>• <b>Project Gutenberg</b> (gutenberg.org) — 70.000+ livros clássicos grátis (O. Henry, Mark Twain, Jack London)<br>• <b>AmericanLiterature.com</b> — contos americanos clássicos organizados por autor<br>• <b>VOA — American Stories</b> — contos clássicos LIDOS em voz americana lenta (leitura + listening juntos!)'}
+        ],
+        exercises:[
+          {type:'mc', q:'Why was Ruth breathing hard?', opts:['She was sick','She had run six blocks through the rain','She was crying','The train was full'], ans:1},
+          {type:'mc', q:'"Of course there were no messages" sugere que Ruth:', opts:['Esqueceu o celular','Já esperava o silêncio dele, com amargura','Recebeu muitas mensagens','Não tinha sinal'], ans:1},
+          {type:'mc', q:'"She might have been wrong" mostra que Ruth:', opts:['Tem certeza que estava certa','Começa a admitir que talvez tenha errado','Culpa o outro','Perdeu o trem de propósito'], ans:1},
+          {type:'mc', q:'"After what she had said at dinner" usa Past Perfect porque:', opts:['É mais formal','A fala no jantar aconteceu ANTES da cena na estação','É futuro','O autor errou'], ans:1},
+        ],
+        quiz:[
+          {q:'Ler "nas entrelinhas" significa:',opts:['Ler rápido','Captar o que o texto sugere sem dizer','Pular linhas','Traduzir literalmente'],ans:1},
+          {q:'Qual site tem 70.000+ livros clássicos GRÁTIS?',opts:['Netflix','Project Gutenberg','Amazon','Spotify'],ans:1},
+        ]
+      },
+      {
+        id:'4.5', pillar:'writing', title:'Escrita — Ensaio de Opinião e Falsos Cognatos',
+        obj:'Escrever textos argumentativos e eliminar os erros típicos de brasileiros',
+        theory:[
+          {type:'intro', text:'✍️ <b>Pilar: Escrita.</b> O <b>opinion essay</b> é o formato exigido em TOEFL, universidades e no mundo profissional americano. E nesta aula você também vai caçar os <b>falsos cognatos</b> — as palavras que enganam todo brasileiro.'},
+          {type:'sec', title:'Estrutura do Opinion Essay (4 parágrafos)', items:[
+            {en:'1. Introduction — hook + sua tese', pt:'"Should everyone learn a second language? In my opinion, the answer is clearly yes."'},
+            {en:'2. Body 1 — argumento forte + exemplo', pt:'"First of all, speaking two languages opens professional doors. For instance, bilingual workers earn up to 15% more..."'},
+            {en:'3. Body 2 — segundo argumento (ou contra-argumento refutado)', pt:'"Some people argue that translation apps make languages unnecessary. However, real communication involves culture and emotion..."'},
+            {en:'4. Conclusion — retome a tese com outras palavras', pt:'"In conclusion, learning a second language remains one of the best investments..."'},
+          ]},
+          {type:'sec', title:'⚠️ Falsos cognatos — as armadilhas do brasileiro', text:''},
+          {type:'table', headers:['Palavra','Parece','Significa de verdade','Como dizer o que você queria'],
+           rows:[
+             ['<b>actually</b>','atualmente','na verdade','currently (atualmente)'],
+             ['<b>pretend</b>','pretender','fingir','intend / plan (pretender)'],
+             ['<b>push</b>','puxar','EMPURRAR','pull (puxar)'],
+             ['<b>college</b>','colégio','faculdade','high school (colégio)'],
+             ['<b>parents</b>','parentes','pais','relatives (parentes)'],
+             ['<b>library</b>','livraria','biblioteca','bookstore (livraria)'],
+             ['<b>fabric</b>','fábrica','tecido','factory (fábrica)'],
+             ['<b>eventually</b>','eventualmente','no fim / mais cedo ou mais tarde','occasionally (eventualmente)'],
+           ]},
+          {type:'sec', title:'📝 Sua tarefa da semana', text:'Escreva um opinion essay de 150-200 palavras: <b>"Is it better to study English online or in a traditional school?"</b> Use a estrutura de 4 parágrafos e pelo menos 5 conectores formais. Corrija no Write & Improve e reescreva a versão final.'},
+          {type:'tip', text:'💡 <strong>Conectores nível B2:</strong> Nevertheless (não obstante), Furthermore (ademais), On the other hand (por outro lado), As a result (como resultado), Despite (apesar de), Whereas (enquanto que).'}
+        ],
+        exercises:[
+          {type:'mc', q:'"Actually" significa:', opts:['Atualmente','Na verdade','Ativamente','Agora'], ans:1},
+          {type:'mc', q:'"Meus pais moram em SP" em inglês:', opts:['My parents live in SP','My relatives live in SP','My fathers live in SP','My family live in SP'], ans:0},
+          {type:'mc', q:'Na porta está escrito PUSH. Você deve:', opts:['Puxar','Empurrar','Bater','Esperar'], ans:1},
+          {type:'mc', q:'O 1º parágrafo do opinion essay deve conter:', opts:['Só exemplos','Hook + sua tese (opinião)','A conclusão','Estatísticas apenas'], ans:1},
+        ],
+        quiz:[
+          {q:'"I pretend to study medicine" — o que o brasileiro quis dizer, e o que disse?',opts:['Quis dizer e disse "pretendo estudar"','Quis dizer "pretendo", mas disse "FINJO estudar" — o certo é "I intend to"','A frase está correta','Pretend = estudar'],ans:1},
+          {q:'"Library" é:',opts:['Livraria','Biblioteca','Papelaria','Editora'],ans:1},
+        ]
+      },
+      {
+        id:'4.6', pillar:'speaking', title:'Fala 🇺🇸 — Entonação e Fala Conectada Natural',
+        obj:'Soar como um nativo americano: música da frase, contrações e connected speech',
+        theory:[
+          {type:'intro', text:'🗣️ <b>Pilar: Fala.</b> A última fronteira do sotaque: a <b>música</b> do inglês americano. Você já domina os sons individuais — agora vai aprender a melodia das frases e as conexões que fazem a fala fluir como a de um nativo de verdade.'},
+          {type:'sec', title:'Sentence Stress — palavras de conteúdo vs função', text:'Americanos marcam com força as palavras de CONTEÚDO (substantivos, verbos, adjetivos) e engolem as de FUNÇÃO (artigos, preposições, auxiliares):', items:[
+            {en:'I WANT to GO to the STORE. → "i-WANT-tə-GO-tə-thə-STORE"', pt:'3 picos fortes; o resto vira schwa. Esse "tum-ta-tum" É o ritmo americano.'},
+          ]},
+          {type:'sec', title:'Entonação — a melodia das perguntas', items:[
+            {en:'Yes/No questions → sobe no final: "Are you coming? ↗"', pt:'Perguntas de sim/não SOBEM.'},
+            {en:'Wh- questions → desce no final: "Where are you going? ↘"', pt:'Perguntas com What/Where/Why DESCEM (erro comum: subir tudo!).'},
+            {en:'Listas: "I bought apples ↗, bananas ↗, and grapes ↘."', pt:'Sobe nos itens, desce no último.'},
+          ]},
+          {type:'sec', title:'Contrações são OBRIGATÓRIAS na fala', items:[
+            {en:'"I am going to the bank" ❌ soa robótico', pt:'Nativo diz: "I\'m gonna go to the bank" ✅'},
+            {en:'"I would have called you" → "I\'da called you"', pt:'Até would have vira "da" na fala rápida!'},
+            {en:'"Did you eat?" → "Didja eat?" / "Jeet?"', pt:'No dia a dia, americanos comprimem tudo.'},
+          ]},
+          {type:'sec', title:'Seu treino final de sotaque (rotina de 30 dias)', items:[
+            {en:'Week 1-2: Shadow 1 cena curta de série americana por dia', pt:'Friends, The Office ou Modern Family — 2 min por cena, repetindo até igualar.'},
+            {en:'Week 3: Grave-se lendo 1 parágrafo + compare com YouGlish', pt:'Ouça 5 nativos americanos falando as mesmas palavras.'},
+            {en:'Week 4: Converse com IA ou tandem 15 min/dia', pt:'ELSA Speak (pronúncia), ou troca de idiomas no Tandem/HelloTalk com americanos.'},
+          ]},
+          {type:'tip', text:'💡 <strong>Kit definitivo de sotaque americano 🇺🇸:</strong><br>• <b>Rachel\'s English — playlist "Sound like a Native Speaker"</b><br>• <b>Sounds American</b> — todos os fonemas do General American<br>• <b>YouGlish (US)</b> — qualquer palavra na boca de milhares de americanos<br>• <b>ELSA Speak</b> — nota de sotaque em tempo real<br>• Séries com legenda EM INGLÊS: Friends → Modern Family → The Office (dificuldade crescente)'}
+        ],
+        exercises:[
+          {type:'mc', q:'Em "I want to go to the store", as palavras FORTES são:', opts:['to, the','want, go, store','I, to','todas iguais'], ans:1},
+          {type:'mc', q:'"Where are you going?" termina com entonação:', opts:['Subindo ↗','Descendo ↘','Reta','Tremida'], ans:1},
+          {type:'mc', q:'"Didja eat?" é a forma falada de:', opts:['Do you eat?','Did you eat?','Would you eat?','Have you eaten?'], ans:1},
+          {type:'mc', q:'Na fala natural americana, contrações (I\'m, gonna, it\'s) são:', opts:['Erradas','Informais demais para usar','Praticamente obrigatórias','Só para textos'], ans:2},
+        ],
+        quiz:[
+          {q:'Perguntas Yes/No em inglês americano terminam:',opts:['Descendo ↘','Subindo ↗','Sem melodia','Com pausa longa'],ans:1},
+          {q:'Qual sequência de séries é recomendada para treinar o ouvido?',opts:['The Office → Friends → Modern Family','Friends → Modern Family → The Office','Qualquer ordem com legenda em português','Séries britânicas primeiro'],ans:1},
+        ]
+      },
+    ]
+  },
+];
+
+// ==================== PILLARS ====================
+const PILLARS={
+  grammar:{emoji:'📖',name:'Gramática',cls:'pg'},
+  reading:{emoji:'📚',name:'Leitura',cls:'pr'},
+  writing:{emoji:'✍️',name:'Escrita',cls:'pw'},
+  speaking:{emoji:'🗣️',name:'Fala 🇺🇸',cls:'ps'},
+};
+
+// ==================== RENDER ENGINE ====================
+const app = document.getElementById('app');
+function render(html){ app.innerHTML = html; app.classList.add('ani'); }
+function goTo(screen, ...args){
+  S.screen = screen;
+  if(screen==='lesson') { S.curModule=args[0]; S.curLesson=args[1]; S.curExercise=0; S.exerciseAnswers=[]; }
+  if(screen==='quiz') { S.curQuiz=args[0]; S.quizAnswers=[]; S.quizCur=0; }
+  draw();
+}
+function draw(){
+  const hdr=document.getElementById('mainHdr');
+  if(S.screen==='login' || !S.user){ hdr.classList.add('hidden'); drawLogin(); return; }
+  hdr.classList.remove('hidden');
+  document.getElementById('btnDash').classList.toggle('hidden', !S.level || S.screen==='welcome');
+  document.getElementById('xpDisplay').textContent = `⭐ ${S.xp} XP`;
+  // populate user header
+  const fname=S.user.name.split(' ')[0];
+  document.getElementById('hdrAvatar').textContent=(S.user.name[0]||'?').toUpperCase();
+  document.getElementById('hdrName').textContent=fname;
+  document.getElementById('menuName').textContent=S.user.name;
+  document.getElementById('menuEmail').textContent=S.user.email;
+  if(S.screen==='welcome') drawWelcome();
+  else if(S.screen==='test') drawTest();
+  else if(S.screen==='result') drawResult();
+  else if(S.screen==='dashboard') drawDash();
+  else if(S.screen==='lesson') drawLesson();
+  else if(S.screen==='exercise') drawExercise();
+  else if(S.screen==='quiz') drawQuiz();
+}
+
+// ==================== WELCOME ====================
+function drawWelcome(){
+  render(`
+  <div class="hero">
+    <span class="hero-em">🇺🇸</span>
+    <h1>Olá, ${S.user.name.split(' ')[0]}! Bem-vindo(a) ao seu<br>curso de inglês personalizado!</h1>
+    <p>Curso completo com <b>4 pilares</b>: Gramática, Leitura, Escrita e Fala — com pronúncia 100% americana (General American). Primeiro, vamos descobrir seu nível com um teste rápido!</p>
+    <button class="btn btn-w" onclick="startTest()">🎯 Fazer teste de nivelamento</button>
+  </div>
+  <div class="con">
+    <div class="features">
+      <div class="feat"><span class="feat-em">📖</span><h3>Gramática</h3><p>Regras claras com tabelas, exemplos traduzidos e exercícios</p></div>
+      <div class="feat"><span class="feat-em">📚</span><h3>Leitura</h3><p>Textos graduados por nível + método de leitura extensiva</p></div>
+      <div class="feat"><span class="feat-em">✍️</span><h3>Escrita</h3><p>Da frase simples ao ensaio, com prática diária guiada</p></div>
+      <div class="feat"><span class="feat-em">🗣️</span><h3>Fala 🇺🇸</h3><p>Pronúncia americana nativa com o método shadowing</p></div>
+    </div>
+    <div class="card" style="text-align:center;padding:30px">
+      <div style="font-size:2rem;margin-bottom:12px">🎯</div>
+      <h2 style="margin-bottom:8px">Teste de Nivelamento</h2>
+      <p style="color:var(--tm);margin-bottom:20px">15 perguntas · ~5 minutos · Descubra seu nível A1, A2, B1 ou B2</p>
+      <button class="btn btn-p" onclick="startTest()">Começar agora →</button>
+    </div>
+  </div>`);
+}
+
+// ==================== PLACEMENT TEST ====================
+let testIdx=0, testAnswered=false;
+function startTest(){ testIdx=0; S.testAnswers=[]; S.testScore=0; S.screen='test'; draw(); }
+function drawTest(){
+  const q=TEST[testIdx];
+  const dots=TEST.map((_,i)=>`<div class="dot ${i<testIdx?'ok':(i===testIdx?'act':'')}"></div>`).join('');
+  render(`
+  <div class="con">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+      <span style="font-weight:700;color:var(--p)">📝 Teste de Nivelamento</span>
+      <span style="font-size:.85rem;color:var(--tm)">${testIdx+1} / ${TEST.length}</span>
+    </div>
+    <div class="test-dots">${dots}</div>
+    <div class="qcard">
+      <span class="qlvl">Nível ${q.lvl}</span>
+      <div class="qtxt">${q.q.replace('___','<span style="border-bottom:2px solid var(--p);padding:0 12px;color:var(--p);font-weight:700">___</span>')}</div>
+      <div class="opts">
+        ${q.opts.map((o,i)=>`<button class="opt" id="opt${i}" onclick="selectOpt(${i})">
+          <span class="opt-lt">${String.fromCharCode(65+i)}</span>${o}
+        </button>`).join('')}
+      </div>
+      <div class="expl" id="expl">${q.exp}</div>
+    </div>
+    <div style="margin-top:20px;text-align:right">
+      <button class="btn btn-o btn-sm" id="btnNext" onclick="nextQuestion()" style="display:none">Próxima →</button>
+    </div>
+  </div>`);
+  testAnswered=false;
+}
+function selectOpt(i){
+  if(testAnswered) return;
+  testAnswered=true;
+  const q=TEST[testIdx];
+  const correct=q.ans===i;
+  if(correct) S.testScore++;
+  S.testAnswers.push({chosen:i,correct});
+  document.querySelectorAll('.opt').forEach((el,idx)=>{
+    if(idx===q.ans) el.classList.add('ok');
+    else if(idx===i && !correct) el.classList.add('err');
+  });
+  document.getElementById('expl').style.display='block';
+  document.getElementById('btnNext').style.display='inline-flex';
+}
+function nextQuestion(){
+  testIdx++;
+  if(testIdx>=TEST.length){ showResult(); return; }
+  S.screen='test'; draw();
+}
+function showResult(){
+  const sc=S.testScore;
+  if(sc<=5) S.level='A1';
+  else if(sc<=9) S.level='A2';
+  else if(sc<=12) S.level='B1';
+  else S.level='B2';
+  // Unlock appropriate modules
+  S.openModules=new Set([0]);
+  if(S.level==='A2'||S.level==='B1'||S.level==='B2') S.openModules.add(1);
+  if(S.level==='B1'||S.level==='B2') { S.openModules.add(1); S.openModules.add(2); }
+  if(S.level==='B2') { S.openModules.add(1); S.openModules.add(2); S.openModules.add(3); }
+  save(true);
+  S.screen='result'; draw();
+}
+
+// ==================== RESULTS ====================
+const levelNames={A1:'Iniciante',A2:'Básico-Intermediário',B1:'Intermediário',B2:'Intermediário-Avançado'};
+const levelDescr={
+  A1:'Você está no início da jornada! Seu curso começa pelos fundamentos: verb to be, present simple e vocabulário essencial.',
+  A2:'Você já tem uma base sólida! Seu curso foca em ampliar os tempos verbais e estruturas mais complexas.',
+  B1:'Parabéns! Você está no nível intermediário. Seu curso avança para present perfect, condicionais e modais.',
+  B2:'Excelente! Você já tem um nível avançado. Seu curso trabalha past perfect, voz passiva e expressões idiomáticas.'
+};
+const levelStart={A1:0,A2:1,B1:2,B2:3};
+function drawResult(){
+  render(`
+  <div class="con">
+    <div class="result-hero">
+      <div class="score-circle">${S.testScore}<span style="font-size:.8rem;font-weight:400;opacity:.8">/${TEST.length}</span></div>
+      <h2 style="font-size:1.5rem;margin-bottom:6px">Seu nível é <b>${S.level}</b> — ${levelNames[S.level]}</h2>
+      <p style="opacity:.85;font-size:.9rem">${levelDescr[S.level]}</p>
+    </div>
+    <div class="result-grid">
+      <div class="stat-card"><div class="stat-num">${S.testScore}</div><div class="stat-lbl">Respostas corretas</div></div>
+      <div class="stat-card"><div class="stat-num">${Math.round(S.testScore/TEST.length*100)}%</div><div class="stat-lbl">Aproveitamento</div></div>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:12px">📚 Seu plano de estudos personalizado</h3>
+      ${MODULES.map((m,i)=>`
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--b)">
+          <div style="font-size:1.5rem">${m.emoji}</div>
+          <div style="flex:1">
+            <div style="font-weight:600;font-size:.9rem">${m.title}</div>
+            <div style="font-size:.8rem;color:var(--tm)">${m.subtitle}</div>
+          </div>
+          <span class="badge badge-${m.level.split('-')[0]}">${m.level}</span>
+          ${S.openModules.has(i)?'<span style="color:var(--g);font-size:.8rem;font-weight:600">✅ Desbloqueado</span>':'<span style="color:var(--tm);font-size:.8rem">🔒 Avançado</span>'}
+        </div>`).join('')}
+    </div>
+    <div style="text-align:center;margin:24px 0">
+      <button class="btn btn-p" onclick="goTo('dashboard')">🚀 Começar meu curso personalizado!</button>
+    </div>
+  </div>`);
+}
+
+// ==================== DASHBOARD ====================
+function getModuleProgress(mIdx){
+  const m=MODULES[mIdx];
+  const done=m.lessons.filter(l=>S.completedLessons.has(`${mIdx}-${l.id}`)).length;
+  return {done, total:m.lessons.length, pct:Math.round(done/m.lessons.length*100)};
+}
+function getTotalProgress(){
+  const total=MODULES.reduce((a,m)=>a+m.lessons.length,0);
+  const done=[...S.completedLessons].length;
+  return {done,total,pct:Math.round(done/total*100)};
+}
+function drawDash(){
+  const tp=getTotalProgress();
+  const lvlColors={A1:'#2B6CB0',A2:'#276749',B1:'#C05621',B2:'#6B46C1'};
+  render(`
+  <div class="con">
+    <div class="dash-top">
+      <div class="user-card">
+        <div class="user-name">Olá, ${S.user.name.split(' ')[0]}! 👋</div>
+        <div class="user-sub">${S.level?`Nível atual: <b>${S.level}</b> — ${levelNames[S.level]}`:'Complete o teste para ver seu nível'}</div>
+        <div style="margin-top:14px">
+          <div style="display:flex;justify-content:space-between;font-size:.8rem;opacity:.85;margin-bottom:4px">
+            <span>Progresso geral</span><span>${tp.done}/${tp.total} aulas</span>
+          </div>
+          <div class="xp-bar-bg"><div class="xp-bar-fill" style="width:${tp.pct}%"></div></div>
+        </div>
+        <div style="margin-top:12px;font-size:.85rem;opacity:.8">⭐ ${S.xp} XP acumulados</div>
+      </div>
+      <div class="streak-card">
+        <div class="streak-icon">🔥</div>
+        <div class="streak-num">${S.streak}</div>
+        <div class="streak-lbl">dia(s) de sequência</div>
+        <div style="margin-top:12px;font-size:.75rem;color:var(--tm)">Estude todos os dias<br>para manter sua sequência!</div>
+      </div>
+    </div>
+
+    ${S.level?`<div class="card" style="background:var(--pl);border:1px solid rgba(91,79,232,.2);margin-bottom:20px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <span style="font-size:1.5rem">🎯</span>
+        <div>
+          <div style="font-weight:700;font-size:.9rem">Seu nível: ${S.level} — ${levelNames[S.level]}</div>
+          <div style="font-size:.8rem;color:var(--tm)">${levelDescr[S.level]}</div>
+        </div>
+      </div>
+    </div>`:''}
+
+    <div class="section-title">📚 Módulos do Curso</div>
+    ${MODULES.map((m,mIdx)=>{
+      const prog=getModuleProgress(mIdx);
+      const locked=!S.openModules.has(mIdx);
+      const done=S.completedModules.has(mIdx);
+      return `
+      <div class="mod-card ${locked?'locked':''} ${done?'done':''}">
+        <div class="mod-hdr" onclick="${locked?'':(`toggleMod(${mIdx})`)}">
+          <div class="mod-num ${done?'done':''} ${locked?'locked':''}">${locked?'🔒':m.emoji}</div>
+          <div class="mod-info">
+            <div class="mod-title">Módulo ${mIdx+1}: ${m.title}</div>
+            <div class="mod-sub">${m.subtitle} · <span class="badge badge-${m.level.split('-')[0]}">${m.level}</span></div>
+            <div style="margin-top:6px">
+              <div class="progress-bar" style="height:5px"><div class="progress-fill ${done?'g':''}" style="width:${prog.pct}%"></div></div>
+            </div>
+          </div>
+          <span class="mod-badge">${done?'✅':(prog.done>0?'📖':'📌')}</span>
+        </div>
+        <div class="mod-body" id="modbody${mIdx}" style="${prog.done>0||!locked?'':'display:none'}">
+          <ul class="les-list">
+            ${m.lessons.map((l,lIdx)=>{
+              const lDone=S.completedLessons.has(`${mIdx}-${l.id}`);
+              const p=PILLARS[l.pillar||'grammar'];
+              return `<li class="les-item" onclick="goTo('lesson',${mIdx},${lIdx})">
+                <span class="les-ck ${lDone?'done':''}">${lDone?'✓':''}</span>
+                <span class="les-name">${l.id} — ${l.title}</span>
+                <span class="pill ${p.cls}">${p.emoji} ${p.name}</span>
+                <span class="les-xp">+50 XP</span>
+              </li>`;
+            }).join('')}
+            <li class="les-item" onclick="goTo('quiz',${mIdx})" style="background:var(--al);border-radius:8px;margin-top:4px">
+              <span class="les-ck ${S.completedModules.has(mIdx)?'done':''}">${S.completedModules.has(mIdx)?'✓':''}</span>
+              <span class="les-name" style="color:var(--a);font-weight:600">🏆 Avaliação do Módulo ${mIdx+1}</span>
+              <span class="les-quiz">+100 XP</span>
+            </li>
+          </ul>
+        </div>
+      </div>`;
+    }).join('')}
+
+    <div class="section-title" style="margin-top:24px">🧭 Seu Método de Estudo (base científica)</div>
+    <div class="card">
+      <div style="display:grid;gap:10px;font-size:.875rem">
+        <div>📥 <b>Input Compreensível (Stephen Krashen)</b> — você adquire a língua quando entende mensagens um pouco acima do seu nível ("i+1"). Por isso as leituras e áudios do curso são sempre do SEU nível, subindo aos poucos.</div>
+        <div>🔁 <b>Active Recall + Repetição Espaçada</b> — os exercícios e avaliações forçam você a LEMBRAR (não só reler). Complemente com flashcards no <b>Anki</b>: é o método com mais evidência científica para vocabulário.</div>
+        <div>🗣️ <b>Shadowing</b> — repetir em voz alta simultaneamente com um nativo americano, imitando som, ritmo e melodia. É o método nº 1 para eliminar sotaque estrangeiro.</div>
+        <div>🇺🇸 <b>Fonte única de pronúncia: General American</b> — TODOS os materiais de áudio recomendados usam apenas o sotaque americano padrão (o da TV e de Hollywood), para você nunca misturar sotaques.</div>
+        <div>⚖️ <b>Os 4 pilares em equilíbrio</b> — cada módulo treina Gramática, Leitura, Escrita e Fala. Pesquisas mostram que as habilidades se reforçam mutuamente: quem lê fala melhor, quem escreve fixa a gramática.</div>
+      </div>
+    </div>
+
+    <div class="section-title">🗓️ Sua Semana Ideal (1h/dia · seg a sex)</div>
+    <div class="card" style="overflow-x:auto">
+      <table class="gt">
+        <tr><th>Dia</th><th>Pilar</th><th>Como usar sua 1 hora</th></tr>
+        <tr><td><b>Segunda</b></td><td>📖 Gramática</td><td>1 aula de gramática do curso + exercícios (40 min) · criar flashcards no Anki (20 min)</td></tr>
+        <tr><td><b>Terça</b></td><td>📚 Leitura</td><td>1 texto do seu nível (30 min) · palavras novas no Anki (15 min) · reler EM VOZ ALTA (15 min)</td></tr>
+        <tr><td><b>Quarta</b></td><td>🗣️ Fala 🇺🇸</td><td>Shadowing com VOA ou Rachel's English (30 min) · gravar sua voz e comparar (15 min) · ELSA Speak (15 min)</td></tr>
+        <tr><td><b>Quinta</b></td><td>✍️ Escrita</td><td>Tarefa de escrita da semana (30 min) · corrigir no Write & Improve (15 min) · reescrever (15 min)</td></tr>
+        <tr><td><b>Sexta</b></td><td>🏆 Revisão</td><td>Avaliação do módulo no curso · revisar os erros da semana · 1 episódio de série com legenda EM INGLÊS</td></tr>
+      </table>
+    </div>
+
+    <div class="section-title">🎒 Materiais Gratuitos por Pilar <span class="pill ps" style="font-size:.7rem">🇺🇸 só inglês americano</span></div>
+    <div class="card">
+      <div style="display:grid;gap:14px;font-size:.875rem">
+        <div><span class="pill pg">📖 Gramática</span><div style="margin-top:6px">• <b>EnglishPage.com</b> — tutoriais completos de todos os tempos verbais, com exercícios<br>• <b>Purdue OWL</b> (owl.purdue.edu) — a referência de gramática das universidades americanas<br>• <b>Merriam-Webster</b> (merriam-webster.com) — O dicionário americano, com áudio de pronúncia US<br>• Livro: <b>"Grammar in Use Intermediate"</b> (edição americana, de Raymond Murphy)</div></div>
+        <div><span class="pill pr">📚 Leitura</span><div style="margin-top:6px">• <b>VOA Learning English</b> — notícias americanas por nível, todas com áudio 🇺🇸<br>• <b>News in Levels</b> — a mesma notícia em 3 níveis de dificuldade<br>• <b>ESL Fast</b> — centenas de textos com áudio americano<br>• <b>ReadTheory</b> — leitura adaptativa com perguntas (gratuito)<br>• <b>Project Gutenberg</b> — 70.000 livros clássicos grátis (O. Henry, Mark Twain, Jack London)</div></div>
+        <div><span class="pill pw">✍️ Escrita</span><div style="margin-top:6px">• <b>Write & Improve</b> (writeandimprove.com) — correção automática gratuita da Cambridge<br>• <b>LangCorrect</b> — nativos corrigem seus textos, você corrige português de volta<br>• <b>Journaly</b> (journaly.com) — diário em inglês com feedback de nativos</div></div>
+        <div><span class="pill ps">🗣️ Fala 🇺🇸</span><div style="margin-top:6px">• <b>Rachel's English</b> (YouTube) — a nº 1 do mundo em pronúncia americana<br>• <b>Sounds American</b> (YouTube) — um vídeo para cada som do General American<br>• <b>YouGlish.com</b> (modo "US") — ouça qualquer palavra na boca de milhares de americanos<br>• <b>ELSA Speak</b> (app) — IA que avalia seu sotaque americano frase a frase<br>• <b>Tandem / HelloTalk</b> — converse com americanos de verdade (escolha parceiros dos EUA!)<br>• <b>American English at State</b> (americanenglish.state.gov) — materiais oficiais do governo americano</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-weight:700;margin-bottom:12px">📚 Trilha de Leitura por Nível</div>
+      <div style="display:grid;gap:8px;font-size:.875rem">
+        <div><span class="badge badge-A1">A1-A2</span> &nbsp;Textos do ESL Fast · News in Levels 1-2 · leitura graduada (Oxford Bookworms Starter-2)</div>
+        <div><span class="badge badge-B1">B1</span> &nbsp;VOA Learning English · "Charlotte's Web" · "The Giver" · "Diary of a Wimpy Kid"</div>
+        <div><span class="badge badge-B2">B2</span> &nbsp;"The Gift of the Magi" (O. Henry, grátis) · "The Old Man and the Sea" · "Of Mice and Men" · "Harry Potter"</div>
+        <div><span class="badge badge-B2">C1+</span> &nbsp;Romances contemporâneos · The New York Times · The Atlantic · ficção sem adaptação</div>
+      </div>
+    </div>
+  </div>`);
+}
+function toggleMod(mIdx){
+  const body=document.getElementById(`modbody${mIdx}`);
+  if(body) body.style.display=body.style.display==='none'?'':'none';
+}
+
+// ==================== LESSON ====================
+function drawLesson(){
+  const m=MODULES[S.curModule];
+  const l=m.lessons[S.curLesson];
+  let theoryHtml='';
+  l.theory.forEach(sec=>{
+    if(sec.type==='intro'){
+      theoryHtml+=`<div class="les-sec"><p>${sec.text}</p></div>`;
+    } else if(sec.type==='sec'){
+      theoryHtml+=`<div class="les-sec"><h3>${sec.title}</h3>${sec.text?`<p>${sec.text}</p>`:''}`
+      if(sec.items) sec.items.forEach(it=>{
+        theoryHtml+=`<div class="eg"><div class="en">🔹 ${it.en}</div><div class="pt">${it.pt}</div></div>`;
+      });
+      theoryHtml+=`</div>`;
+    } else if(sec.type==='table'){
+      theoryHtml+=`<div class="les-sec"><table class="gt"><tr>${sec.headers.map(h=>`<th>${h}</th>`).join('')}</tr>`;
+      sec.rows.forEach(r=>{theoryHtml+=`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`;});
+      theoryHtml+=`</table></div>`;
+    } else if(sec.type==='tip'){
+      theoryHtml+=`<div class="tip">${sec.text}</div>`;
+    }
+  });
+
+  render(`
+  <div class="con">
+    <div style="margin-bottom:12px">
+      <button class="btn btn-o btn-sm" onclick="goTo('dashboard')">← Voltar ao curso</button>
+    </div>
+    <div class="les-hero">
+      <div style="font-size:.8rem;opacity:.7;margin-bottom:6px">Módulo ${S.curModule+1} · Aula ${l.id} · Pilar: ${PILLARS[l.pillar||'grammar'].emoji} ${PILLARS[l.pillar||'grammar'].name}</div>
+      <h2>${l.title}</h2>
+      <p>🎯 ${l.obj}</p>
+    </div>
+    <div class="les-content">
+      ${theoryHtml}
+      <div style="border-top:2px solid var(--b);padding-top:24px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn btn-p" onclick="goTo('exercise',${S.curModule},${S.curLesson})">✍️ Praticar agora</button>
+        <button class="btn btn-o" onclick="goTo('dashboard')">← Voltar ao curso</button>
+      </div>
+    </div>
+  </div>`);
+}
+
+// ==================== EXERCISE ====================
+let exAnswered=false;
+function drawExercise(){
+  const m=MODULES[S.curModule];
+  const l=m.lessons[S.curLesson];
+  const exs=l.exercises;
+  const ci=S.curExercise;
+  if(ci>=exs.length){
+    // done
+    const correct=S.exerciseAnswers.filter(a=>a).length;
+    const xpEarned=50+correct*10;
+    S.completedLessons.add(`${S.curModule}-${l.id}`);
+    S.xp+=xpEarned;
+    save(true);
+    // check module complete
+    const modDone=m.lessons.every(ls=>S.completedLessons.has(`${S.curModule}-${ls.id}`));
+    render(`
+    <div class="con">
+      <div class="card" style="text-align:center;padding:40px 20px">
+        <span style="font-size:3.5rem;display:block;margin-bottom:16px">${correct===exs.length?'🎉':'👍'}</span>
+        <h2 style="margin-bottom:8px">${correct===exs.length?'Perfeito!':'Muito bem!'}</h2>
+        <p style="color:var(--tm);margin-bottom:20px">${correct} de ${exs.length} exercícios corretos</p>
+        <div style="display:inline-block;background:var(--pl);border-radius:12px;padding:16px 30px;margin-bottom:24px">
+          <div style="font-size:2rem;font-weight:800;color:var(--p)">+${xpEarned} XP</div>
+          <div style="font-size:.85rem;color:var(--tm)">ganhos nessa aula!</div>
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-p" onclick="goTo('quiz',${S.curModule})">🏆 Fazer avaliação do módulo</button>
+          <button class="btn btn-o" onclick="goTo('dashboard')">← Voltar ao curso</button>
+        </div>
+      </div>
+    </div>`);
+    return;
+  }
+  const ex=exs[ci];
+  const dots=exs.map((_,i)=>`<div class="ex-dot ${i<ci?'ok':(i===ci?'act':'')}"></div>`).join('');
+  exAnswered=false;
+  let qHtml='';
+  if(ex.type==='mc'){
+    qHtml=`<div class="ex-q">${ex.q}</div>
+    <div class="opts">
+      ${ex.opts.map((o,i)=>`<button class="opt" id="exopt${i}" onclick="checkMC(${i},${ex.ans},'${o.replace(/'/g,"\\'")}',${JSON.stringify(ex.opts[ex.ans]).replace(/'/g,"\\'")})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+    </div>`;
+  } else if(ex.type==='fill'){
+    const b=ex.blanks[0];
+    qHtml=`<div class="ex-q">${b.before}<input class="ex-input" id="fillInp" type="text" placeholder="..." onkeydown="if(event.key==='Enter')checkFill()" autocomplete="off" autocorrect="off" spellcheck="false">${b.after}</div>
+    <button class="btn btn-p btn-sm" onclick="checkFill()">Verificar</button>`;
+  }
+  render(`
+  <div class="con">
+    <div style="margin-bottom:12px">
+      <button class="btn btn-o btn-sm" onclick="goTo('lesson',${S.curModule},${S.curLesson})">← Voltar à aula</button>
+    </div>
+    <div class="card">
+      <div class="ex-hdr">
+        <div>
+          <div style="font-size:.8rem;color:var(--tm);margin-bottom:4px">Exercícios — Aula ${l.id}</div>
+          <div class="ex-prog">${dots}</div>
+        </div>
+        <div class="ex-score">${S.exerciseAnswers.filter(a=>a).length}/${ci} ✓</div>
+      </div>
+      ${qHtml}
+      <div id="exFb"></div>
+    </div>
+  </div>`);
+  if(ex.type==='fill') document.getElementById('fillInp')?.focus();
+}
+function checkMC(chosen,correct,chosenTxt,correctTxt){
+  if(exAnswered) return;
+  exAnswered=true;
+  const ok=chosen===correct;
+  S.exerciseAnswers.push(ok);
+  document.querySelectorAll('.opt').forEach((el,i)=>{
+    if(i===correct) el.classList.add('ok');
+    else if(i===chosen && !ok) el.classList.add('err');
+  });
+  showExFb(ok, correctTxt);
+}
+function checkFill(){
+  if(exAnswered) return;
+  const inp=document.getElementById('fillInp');
+  if(!inp) return;
+  const val=inp.value.trim().toLowerCase();
+  const ex=MODULES[S.curModule].lessons[S.curLesson].exercises[S.curExercise];
+  const ans=ex.blanks[0].ans.toLowerCase();
+  const ok=val===ans;
+  exAnswered=true;
+  S.exerciseAnswers.push(ok);
+  inp.classList.add(ok?'ok':'err');
+  if(!ok) inp.value=ex.blanks[0].ans;
+  showExFb(ok, ex.blanks[0].ans);
+}
+function showExFb(ok, correctAns){
+  const fb=document.getElementById('exFb');
+  if(!fb) return;
+  fb.innerHTML=`
+    <div class="fb ${ok?'ok':'err'}" style="margin-top:16px">
+      ${ok?'✅ <b>Correto!</b> Muito bem!':'❌ <b>Incorreto.</b> A resposta certa é: <b>'+correctAns+'</b>'}
+    </div>
+    <div style="margin-top:14px">
+      <button class="btn btn-p btn-sm" onclick="nextEx()">Próximo →</button>
+    </div>`;
+}
+function nextEx(){
+  S.curExercise++;
+  draw();
+}
+
+// ==================== QUIZ ====================
+function drawQuiz(){
+  const m=MODULES[S.curQuiz];
+  const qs=m.lessons.reduce((a,l)=>[...a,...l.quiz],[]);
+  const ci=S.quizCur;
+  if(ci>=qs.length){
+    // Results
+    const correct=S.quizAnswers.filter(a=>a).length;
+    const pct=Math.round(correct/qs.length*100);
+    const pass=pct>=60;
+    if(pass){ S.completedModules.add(S.curQuiz); S.xp+=100; S.openModules.add(S.curQuiz+1); }
+    S.quizScores[S.curQuiz]=pct;
+    save(true);
+    render(`
+    <div class="con">
+      <div class="card quiz-result">
+        <div class="qr-circle ${pass?'pass':'fail'}">${pct}%</div>
+        <h2 style="margin-bottom:8px">${pass?'🎉 Parabéns! Módulo concluído!':'📚 Continue praticando!'}</h2>
+        <p style="color:var(--tm);margin-bottom:8px">${correct} de ${qs.length} questões corretas</p>
+        ${pass?`<div style="background:var(--gl);border-radius:10px;padding:14px;margin:16px 0;color:#276749">✅ Você desbloqueou o próximo módulo! +100 XP</div>`:`<div style="background:var(--rl);border-radius:10px;padding:14px;margin:16px 0;color:var(--r)">Você precisa de 60% para avançar. Revise as aulas e tente novamente.</div>`}
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px">
+          ${!pass?`<button class="btn btn-p" onclick="goTo('quiz',${S.curQuiz})">🔄 Tentar novamente</button>`:''}
+          <button class="btn btn-o" onclick="goTo('dashboard')">← Voltar ao curso</button>
+        </div>
+      </div>
+    </div>`);
+    return;
+  }
+  const q=qs[ci];
+  render(`
+  <div class="con">
+    <div class="card">
+      <div class="quiz-prog">
+        <span>📝 Avaliação: Módulo ${S.curQuiz+1} — ${m.title}</span>
+        <span>${ci+1} / ${qs.length}</span>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${(ci/qs.length)*100}%"></div></div>
+      <div style="margin-top:20px" class="quiz-q">${q.q}</div>
+      <div class="opts">
+        ${q.opts.map((o,i)=>`<button class="opt" id="qopt${i}" onclick="answerQuiz(${i},${q.ans},'${o.replace(/'/g,"\\'")}',${JSON.stringify(q.opts[q.ans]).replace(/'/g,"\\'")})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+      </div>
+      <div id="qFb"></div>
+    </div>
+  </div>`);
+}
+let quizAnswered=false;
+function answerQuiz(chosen,correct,chosenTxt,correctTxt){
+  if(quizAnswered) return;
+  quizAnswered=true;
+  const ok=chosen===correct;
+  S.quizAnswers.push(ok);
+  document.querySelectorAll('.opt').forEach((el,i)=>{
+    if(i===correct) el.classList.add('ok');
+    else if(i===chosen && !ok) el.classList.add('err');
+  });
+  const fb=document.getElementById('qFb');
+  fb.innerHTML=`
+    <div class="fb ${ok?'ok':'err'}" style="margin-top:16px">
+      ${ok?'✅ <b>Correto!</b>':'❌ <b>Incorreto.</b> Resposta: <b>'+correctTxt+'</b>'}
+    </div>
+    <div style="margin-top:14px">
+      <button class="btn btn-p btn-sm" onclick="nextQuizQ()">Próxima →</button>
+    </div>`;
+}
+function nextQuizQ(){
+  S.quizCur++;
+  quizAnswered=false;
+  draw();
+}
+
+// Start — auto-login returning user or show login screen
+boot();
+</script>
+</body>
+</html>
