@@ -1764,7 +1764,7 @@ function drawExercise(){
   if(ex.type==='mc'){
     qHtml=`<div class="ex-q">${ex.q}</div>
     <div class="opts">
-      ${ex.opts.map((o,i)=>`<button class="opt" id="exopt${i}" onclick="checkMC(${i},${ex.ans},'${o.replace(/'/g,"\\'")}',${JSON.stringify(ex.opts[ex.ans]).replace(/'/g,"\\'")})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+      ${ex.opts.map((o,i)=>`<button class="opt" id="exopt${i}" onclick="checkMC(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
     </div>`;
   } else if(ex.type==='fill'){
     const b=ex.blanks[0];
@@ -1790,16 +1790,18 @@ function drawExercise(){
   </div>`);
   if(ex.type==='fill') document.getElementById('fillInp')?.focus();
 }
-function checkMC(chosen,correct,chosenTxt,correctTxt){
+function checkMC(chosen){
   if(exAnswered) return;
   exAnswered=true;
+  const ex=MODULES[S.curModule].lessons[S.curLesson].exercises[S.curExercise];
+  const correct=ex.ans;
   const ok=chosen===correct;
   S.exerciseAnswers.push(ok);
   document.querySelectorAll('.opt').forEach((el,i)=>{
     if(i===correct) el.classList.add('ok');
     else if(i===chosen && !ok) el.classList.add('err');
   });
-  showExFb(ok, correctTxt);
+  showExFb(ok, ex.opts[correct]);
 }
 function checkFill(){
   if(exAnswered) return;
@@ -1870,16 +1872,19 @@ function drawQuiz(){
       <div class="progress-bar"><div class="progress-fill" style="width:${(ci/qs.length)*100}%"></div></div>
       <div style="margin-top:20px" class="quiz-q">${q.q}</div>
       <div class="opts">
-        ${q.opts.map((o,i)=>`<button class="opt" id="qopt${i}" onclick="answerQuiz(${i},${q.ans},'${o.replace(/'/g,"\\'")}',${JSON.stringify(q.opts[q.ans]).replace(/'/g,"\\'")})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+        ${q.opts.map((o,i)=>`<button class="opt" id="qopt${i}" onclick="answerQuiz(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
       </div>
       <div id="qFb"></div>
     </div>
   </div>`);
 }
 let quizAnswered=false;
-function answerQuiz(chosen,correct,chosenTxt,correctTxt){
+function answerQuiz(chosen){
   if(quizAnswered) return;
   quizAnswered=true;
+  const qs=MODULES[S.curQuiz].lessons.reduce((a,l)=>[...a,...l.quiz],[]);
+  const q=qs[S.quizCur];
+  const correct=q.ans;
   const ok=chosen===correct;
   S.quizAnswers.push(ok);
   document.querySelectorAll('.opt').forEach((el,i)=>{
@@ -1889,7 +1894,7 @@ function answerQuiz(chosen,correct,chosenTxt,correctTxt){
   const fb=document.getElementById('qFb');
   fb.innerHTML=`
     <div class="fb ${ok?'ok':'err'}" style="margin-top:16px">
-      ${ok?'✅ <b>Correto!</b>':'❌ <b>Incorreto.</b> Resposta: <b>'+correctTxt+'</b>'}
+      ${ok?'✅ <b>Correto!</b>':'❌ <b>Incorreto.</b> Resposta: <b>'+q.opts[correct]+'</b>'}
     </div>
     <div style="margin-top:14px">
       <button class="btn btn-p btn-sm" onclick="nextQuizQ()">Próxima →</button>
