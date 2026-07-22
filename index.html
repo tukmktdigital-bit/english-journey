@@ -207,6 +207,39 @@ table.gt tr:nth-child(even) td{background:var(--bg)}
 .saved-toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--t);color:#fff;padding:10px 20px;border-radius:30px;font-size:.82rem;font-weight:600;box-shadow:0 6px 20px rgba(0,0,0,.3);z-index:300;transition:transform .3s ease;display:flex;align-items:center;gap:7px}
 .saved-toast.show{transform:translateX(-50%) translateY(0)}
 
+/* FREEMIUM */
+.free-banner{background:linear-gradient(135deg,#DD6B20,#F6AD37);color:#fff;border-radius:14px;padding:18px 20px;margin-bottom:16px;box-shadow:0 6px 20px rgba(221,107,32,.3)}
+.btn-unlock{background:#fff;color:#B7791F;border:none;font-weight:800;padding:11px 20px;border-radius:30px;cursor:pointer;font-size:.9rem;box-shadow:0 3px 10px rgba(0,0,0,.12);transition:transform .15s}
+.btn-unlock:hover{transform:translateY(-2px)}
+.mod-card.prem{opacity:1;border-color:#F6AD37;background:linear-gradient(180deg,#FFFBF2,#fff)}
+.mod-card.prem .mod-num.locked{background:linear-gradient(135deg,#DD6B20,#F6AD37);color:#fff}
+.premium-tag{display:inline-block;background:linear-gradient(135deg,#DD6B20,#F6AD37);color:#fff;font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:20px;letter-spacing:.3px}
+.free-tag{display:inline-block;background:var(--gl);color:var(--g);font-size:.7rem;font-weight:800;padding:3px 10px;border-radius:20px}
+/* PAYWALL MODAL */
+.modal-ov{position:fixed;inset:0;background:rgba(20,24,36,.6);backdrop-filter:blur(3px);z-index:400;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-ov.show{display:flex;animation:fi .25s ease}
+.modal{background:#fff;border-radius:20px;max-width:440px;width:100%;box-shadow:0 24px 70px rgba(0,0,0,.35);overflow:hidden;max-height:92vh;overflow-y:auto}
+.modal-head{background:linear-gradient(135deg,#5B4FE8,#7C3AED);color:#fff;padding:28px 28px 24px;text-align:center;position:relative}
+.modal-head .close{position:absolute;top:14px;right:16px;font-size:1.4rem;cursor:pointer;opacity:.8;background:none;border:none;color:#fff}
+.modal-head .lock{font-size:2.6rem;margin-bottom:8px}
+.modal-head h2{font-size:1.4rem;margin-bottom:6px}
+.modal-head p{font-size:.9rem;opacity:.92}
+.modal-body{padding:26px 28px}
+.modal-body .price{text-align:center;margin-bottom:18px}
+.modal-body .price .old{color:var(--tm);text-decoration:line-through;font-size:1rem}
+.modal-body .price .now{font-size:2.4rem;font-weight:800;color:var(--p);line-height:1}
+.modal-body .benefits{list-style:none;margin:18px 0}
+.modal-body .benefits li{font-size:.9rem;padding:5px 0 5px 26px;position:relative}
+.modal-body .benefits li::before{content:"✅";position:absolute;left:0}
+.divider{display:flex;align-items:center;gap:12px;color:var(--tm);font-size:.8rem;margin:20px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--b)}
+.code-row{display:flex;gap:8px}
+.code-row input{flex:1;padding:12px 14px;border:2px solid var(--b);border-radius:10px;font-size:.95rem;font-family:inherit;outline:none;text-transform:uppercase;letter-spacing:1px}
+.code-row input:focus{border-color:var(--p)}
+.code-msg{font-size:.82rem;margin-top:10px;min-height:18px}
+.code-msg.err{color:#E53E3E}
+.code-msg.ok{color:var(--g)}
+
 /* ANIMATIONS */
 @keyframes fi{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .ani{animation:fi .3s ease forwards}
@@ -252,6 +285,41 @@ table.gt tr:nth-child(even) td{background:var(--bg)}
 <div id="app"></div>
 <div class="saved-toast" id="savedToast">💾 Progresso salvo</div>
 
+<!-- PAYWALL / DESBLOQUEIO -->
+<div class="modal-ov" id="paywall">
+  <div class="modal">
+    <div class="modal-head">
+      <button class="close" onclick="closePaywall()">×</button>
+      <div class="lock">🔓</div>
+      <h2>Desbloqueie o curso completo</h2>
+      <p>Continue do básico até a fluência com os Módulos 2, 3 e 4</p>
+    </div>
+    <div class="modal-body">
+      <div class="price">
+        <!-- EDITAR preços -->
+        <div class="old">De R$ 197,00</div>
+        <div class="now">R$ 47<small style="font-size:1rem">,00</small></div>
+        <div style="font-size:.82rem;color:var(--tm)">pagamento único · acesso vitalício</div>
+      </div>
+      <ul class="benefits">
+        <li>Módulos 2, 3 e 4 (do A2 ao B2) completos</li>
+        <li>Todas as aulas de leitura, escrita e fala 🇺🇸</li>
+        <li>Exercícios e avaliações de cada módulo</li>
+        <li>Seu progresso salvo e acesso para sempre</li>
+      </ul>
+      <!-- EDITAR link de compra (Kiwify/Hotmart) -->
+      <a href="#" target="_blank" class="btn btn-p btn-full" style="text-decoration:none">🛒 Comprar agora</a>
+      <div class="divider">já comprou?</div>
+      <div style="font-size:.85rem;color:var(--tm);margin-bottom:8px">Digite o código de acesso que você recebeu após a compra:</div>
+      <div class="code-row">
+        <input id="unlockCode" type="text" placeholder="SEU-CÓDIGO" onkeydown="if(event.key==='Enter')submitUnlockCode()" autocomplete="off">
+        <button class="btn btn-p" onclick="submitUnlockCode()">Ativar</button>
+      </div>
+      <div class="code-msg" id="codeMsg"></div>
+    </div>
+  </div>
+</div>
+
 <script>
 // ==================== STATE ====================
 const S = {
@@ -260,6 +328,7 @@ const S = {
   level: null,
   xp: 0,
   streak: 1,
+  premium: false,    // desbloqueado após inserir código de acesso (compra)
   lastStudy: null,   // YYYY-MM-DD
   completedLessons: new Set(),
   completedModules: new Set(),
@@ -297,7 +366,7 @@ function daysBetween(a,b){ return Math.round((new Date(b)-new Date(a))/86400000)
 // Serialize the learning state (not transient UI fields)
 function serializeProgress(){
   return {
-    level:S.level, xp:S.xp, streak:S.streak, lastStudy:S.lastStudy,
+    level:S.level, xp:S.xp, streak:S.streak, premium:S.premium, lastStudy:S.lastStudy,
     completedLessons:[...S.completedLessons],
     completedModules:[...S.completedModules],
     quizScores:S.quizScores,
@@ -307,7 +376,7 @@ function serializeProgress(){
 }
 function applyProgress(p){
   if(!p) return;
-  S.level=p.level??null; S.xp=p.xp||0; S.streak=p.streak||1; S.lastStudy=p.lastStudy||null;
+  S.level=p.level??null; S.xp=p.xp||0; S.streak=p.streak||1; S.premium=!!p.premium; S.lastStudy=p.lastStudy||null;
   S.completedLessons=new Set(p.completedLessons||[]);
   S.completedModules=new Set(p.completedModules||[]);
   S.quizScores=p.quizScores||{};
@@ -1391,6 +1460,8 @@ const PILLARS={
 const app = document.getElementById('app');
 function render(html){ app.innerHTML = html; app.classList.add('ani'); }
 function goTo(screen, ...args){
+  // Trava premium: módulos 2, 3 e 4 (índice >=1) exigem acesso pago
+  if((screen==='lesson' || screen==='quiz') && args[0]>=1 && !S.premium){ openPaywall(); return; }
   S.screen = screen;
   if(screen==='lesson') { S.curModule=args[0]; S.curLesson=args[1]; S.curExercise=0; S.exerciseAnswers=[]; }
   if(screen==='quiz') { S.curQuiz=args[0]; S.quizAnswers=[]; S.quizCur=0; }
@@ -1591,17 +1662,45 @@ function drawDash(){
       </div>
     </div>`:''}
 
-    <div class="section-title">📚 Módulos do Curso</div>
+    ${!S.premium?`<div class="section-title">📚 Módulos do Curso</div>
+    <div class="free-banner">
+      <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+        <span style="font-size:1.8rem">🎁</span>
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:800">Você está na versão gratuita</div>
+          <div style="font-size:.85rem;opacity:.9">O Módulo 1 é liberado. Desbloqueie os Módulos 2, 3 e 4 e conquiste a fluência completa.</div>
+        </div>
+        <button class="btn-unlock" style="width:auto" onclick="openPaywall()">🔓 Desbloquear curso completo</button>
+      </div>
+    </div>`:`<div class="section-title">📚 Módulos do Curso <span class="premium-tag">⭐ Acesso completo</span></div>`}
     ${MODULES.map((m,mIdx)=>{
       const prog=getModuleProgress(mIdx);
-      const locked=!S.openModules.has(mIdx);
+      const isPaid=mIdx>=1;
+      const premiumLocked=isPaid && !S.premium;
+      const progressLocked=!S.openModules.has(mIdx);
       const done=S.completedModules.has(mIdx);
+      if(premiumLocked){
+        return `
+      <div class="mod-card locked prem">
+        <div class="mod-hdr" onclick="openPaywall()">
+          <div class="mod-num locked">🔒</div>
+          <div class="mod-info">
+            <div class="mod-title">Módulo ${mIdx+1}: ${m.title}</div>
+            <div class="mod-sub">${m.subtitle} · <span class="badge badge-${m.level.split('-')[0]}">${m.level}</span></div>
+            <div style="margin-top:8px"><span class="premium-tag">⭐ Conteúdo premium</span></div>
+          </div>
+          <span class="mod-badge">🔒</span>
+        </div>
+        <div style="padding:0 22px 18px"><button class="btn-unlock" onclick="openPaywall()">🔓 Desbloquear curso completo</button></div>
+      </div>`;
+      }
+      const locked=progressLocked;
       return `
       <div class="mod-card ${locked?'locked':''} ${done?'done':''}">
         <div class="mod-hdr" onclick="${locked?'':(`toggleMod(${mIdx})`)}">
           <div class="mod-num ${done?'done':''} ${locked?'locked':''}">${locked?'🔒':m.emoji}</div>
           <div class="mod-info">
-            <div class="mod-title">Módulo ${mIdx+1}: ${m.title}</div>
+            <div class="mod-title">Módulo ${mIdx+1}: ${m.title}${isPaid?' <span class="premium-tag">⭐</span>':' <span class="free-tag">grátis</span>'}</div>
             <div class="mod-sub">${m.subtitle} · <span class="badge badge-${m.level.split('-')[0]}">${m.level}</span></div>
             <div style="margin-top:6px">
               <div class="progress-bar" style="height:5px"><div class="progress-fill ${done?'g':''}" style="width:${prog.pct}%"></div></div>
@@ -1678,6 +1777,42 @@ function drawDash(){
 function toggleMod(mIdx){
   const body=document.getElementById(`modbody${mIdx}`);
   if(body) body.style.display=body.style.display==='none'?'':'none';
+}
+
+/* ============================================================
+   CÓDIGOS DE ACESSO — EDITAR AQUI
+   Estes são os códigos que liberam o curso completo. Entregue
+   um deles ao comprador (a Kiwify/Hotmart envia automaticamente
+   na área de conteúdo/e-mail após a compra).
+   • Troque o código de exemplo pelo(s) seu(s).
+   • Pode ter vários (separados por vírgula). Não diferencia
+     maiúsculas/minúsculas.
+   Obs.: por ser um app sem servidor, o código fica no arquivo.
+   É uma proteção simples (ótima para começar). Para proteção
+   total, use a área de membros da Kiwify/Hotmart.
+   ============================================================ */
+const ACCESS_CODES = ['ENGLISH-JOURNEY-2026'];
+
+function openPaywall(){
+  const m=document.getElementById('codeMsg'); if(m){m.textContent='';m.className='code-msg';}
+  const i=document.getElementById('unlockCode'); if(i) i.value='';
+  document.getElementById('paywall').classList.add('show');
+}
+function closePaywall(){ document.getElementById('paywall').classList.remove('show'); }
+document.addEventListener('click',(e)=>{ if(e.target && e.target.id==='paywall') closePaywall(); });
+function submitUnlockCode(){
+  const inp=document.getElementById('unlockCode');
+  const msg=document.getElementById('codeMsg');
+  const val=(inp.value||'').trim().toLowerCase();
+  if(!val){ msg.className='code-msg err'; msg.textContent='Digite o seu código de acesso.'; return; }
+  const ok=ACCESS_CODES.some(c=>c.trim().toLowerCase()===val);
+  if(ok){
+    S.premium=true; save(true);
+    msg.className='code-msg ok'; msg.textContent='✅ Curso completo desbloqueado! Aproveite.';
+    setTimeout(()=>{ closePaywall(); draw(); }, 900);
+  } else {
+    msg.className='code-msg err'; msg.textContent='❌ Código inválido. Confira o que você recebeu após a compra.';
+  }
 }
 
 // ==================== LESSON ====================
@@ -1852,9 +1987,14 @@ function drawQuiz(){
         <div class="qr-circle ${pass?'pass':'fail'}">${pct}%</div>
         <h2 style="margin-bottom:8px">${pass?'🎉 Parabéns! Módulo concluído!':'📚 Continue praticando!'}</h2>
         <p style="color:var(--tm);margin-bottom:8px">${correct} de ${qs.length} questões corretas</p>
-        ${pass?`<div style="background:var(--gl);border-radius:10px;padding:14px;margin:16px 0;color:#276749">✅ Você desbloqueou o próximo módulo! +100 XP</div>`:`<div style="background:var(--rl);border-radius:10px;padding:14px;margin:16px 0;color:var(--r)">Você precisa de 60% para avançar. Revise as aulas e tente novamente.</div>`}
+        ${(()=>{ const nextIdx=S.curQuiz+1; const nextLocked=nextIdx<=3 && !S.premium;
+          if(!pass) return `<div style="background:var(--rl);border-radius:10px;padding:14px;margin:16px 0;color:var(--r)">Você precisa de 60% para avançar. Revise as aulas e tente novamente.</div>`;
+          if(nextLocked) return `<div style="background:var(--al);border:1px solid #FBD38D;border-radius:10px;padding:16px;margin:16px 0;color:#B7791F">+100 XP! 🎉 Você concluiu o conteúdo gratuito. Desbloqueie o curso completo para continuar rumo à fluência.</div>`;
+          return `<div style="background:var(--gl);border-radius:10px;padding:14px;margin:16px 0;color:#276749">✅ Você desbloqueou o próximo módulo! +100 XP</div>`;
+        })()}
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px">
           ${!pass?`<button class="btn btn-p" onclick="goTo('quiz',${S.curQuiz})">🔄 Tentar novamente</button>`:''}
+          ${(pass && S.curQuiz+1<=3 && !S.premium)?`<button class="btn btn-p" onclick="goTo('dashboard');setTimeout(openPaywall,150)">🔓 Desbloquear curso completo</button>`:''}
           <button class="btn btn-o" onclick="goTo('dashboard')">← Voltar ao curso</button>
         </div>
       </div>
